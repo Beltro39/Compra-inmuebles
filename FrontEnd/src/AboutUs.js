@@ -1,6 +1,9 @@
 import './AboutUs.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Area from './assets/Area.png';
+import paginasUsadas from './assets/paginas.png';
+import equipo from './assets/equipo.png';
 import { GoLocation } from 'react-icons/go';
 import { BiPhoneCall } from 'react-icons/bi';
 import { AiFillRead, AiOutlineQuestionCircle } from 'react-icons/ai';
@@ -39,9 +42,10 @@ function AboutUs() {
 return (
   <div className="container" style={styles.styleForm}>
       <header className="AboutUs-header">
-          
-      <div className="row">
-        <div className="col-5" style={styles.styleForm}>
+      
+      
+      <div className="row justify-content-center">
+        <div className="col-sm-5" style={styles.styleForm}>
           <p>¿Quienes Somos?</p>
           <br></br>
             <p className="AboutUs" >FRANCA PAISA es un Portal Web 
@@ -56,15 +60,18 @@ return (
               FRANCAPAISA.co te ofrece en el Área Metropolitana
               del Valle de Aburrá, inmuebles en venta.
              </p>
-             <img src="banner.png" class="img-fluid"></img>
+             <img src={Area} className="AreaMetropolitana" alt="logo" />
+             <br></br>
              <br></br>
              <p className="AboutUs" >
              Recopilamos inmuebles de ocho páginas para ahorrarte tiempo en la búsqueda.
              </p>
+             
         </div>
-        <div className="col-7" style={styles.styleForm}>
-        <img src="paginas.png" class="img-fluid"></img>
-        <img src="equipo.png" class="img-fluid"></img>
+        <div className="col-sm-7" style={styles.styleForm}>
+        <img src={paginasUsadas} className="paginasUsadas" alt="logo" />
+        <img src={equipo} className="equipo" alt="logo" />    
+
 
         </div>
       </div>

@@ -2,9 +2,24 @@
     text-align: left;
   }
   
+  .AreaMetropolitana{
+    width: 100px; height: 100px;
+  }
+
+  .paginasUsadas{
+    width: 600px; height: 350px;
+  }
+  .equipo{
+    width: 600px; height: 350px;
+  }
+
   .AboutUs-logo {
     pointer-events: none;
-    width: 100%;
+    width: 50%;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
   }
   
   .AboutUs-navbar{
