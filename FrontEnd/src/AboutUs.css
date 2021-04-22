@@ -1,0 +1,52 @@
+.AboutUs{
+    text-align: left;
+  }
+  
+  .AreaMetropolitana{
+    width: 100px; height: 100px;
+  }
+
+  .paginasUsadas{
+    width: 600px; height: 350px;
+  }
+  .equipo{
+    width: 600px; height: 350px;
+  }
+
+  .AboutUs-logo {
+    pointer-events: none;
+    width: 50%;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+  }
+  
+  .AboutUs-navbar{
+    width: 100%;
+  }
+  
+  .AboutUs-nav-link{
+    color: aliceblue;
+    margin-left: 7%;
+    margin-right: 7%;
+  }
+  
+  .AboutUs-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
