@@ -1,6 +1,6 @@
 import './PageNotFound.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import notFoundImage from './assets/pageNotFound.png';
+import notFoundImage from '../assets/pageNotFound.png';
 
 function PageNotFound() {
     return (
