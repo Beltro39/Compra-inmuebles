@@ -22,7 +22,7 @@ function App() {
             <Navbar className="App-navbar justify-content-center" bg="dark" variant="dark" sticky="top">
               <Nav.Link className="App-nav-link" href="/">Inmuebles</Nav.Link>
               <Nav.Link className="App-nav-link" href="/about">Nosotros</Nav.Link>
-              <Nav.Link className="App-nav-link" href="/contact">Contacto</Nav.Link>
+              <Nav.Link className="App-nav-link" href="/contact">Contacto De la gerencia</Nav.Link>
             </Navbar>
             <Switch>
               <Route exact path="/" component={Home} />
