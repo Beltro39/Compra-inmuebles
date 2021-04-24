@@ -9,7 +9,12 @@ import {
 } from "react-router-dom";
 import { GoLocation } from 'react-icons/go';
 import { BiPhoneCall } from 'react-icons/bi';
-import { AiOutlineQuestionCircle } from 'react-icons/ai';
+import { BsPeople } from 'react-icons/bs';
+import {
+  AiOutlineQuestionCircle,
+  AiOutlineHome,
+  AiOutlineUser
+} from 'react-icons/ai';
 import AboutUs from './AboutUs/AboutUs';
 import Contact from './Contact/Contact';
 import Home from './Home/Home';
@@ -26,6 +31,10 @@ function App() {
     },
     styleContactInfo: {
       paddingBottom: 5
+    },
+    styleNavBar: {
+      width: 20,
+      marginTop: -5
     }
   }
 
@@ -36,10 +45,18 @@ function App() {
           <div>
             <img src={banner} className="App-logo" alt="logo" />
             <Navbar className="App-navbar justify-content-center" bg="dark" variant="dark" sticky="top">
-              <Nav.Link className="App-nav-link" href="/">Inmuebles</Nav.Link>
-              <Nav.Link className="App-nav-link" href="/about">Nosotros</Nav.Link>
-              <Nav.Link className="App-nav-link" href="/contact">Contacto</Nav.Link>
-              <Nav.Link className="App-nav-link" href="/login">Iniciar Sesión</Nav.Link>
+              <Nav.Link className="App-nav-link" href="/">
+                <AiOutlineHome style={styles.styleNavBar} /> Inmuebles
+              </Nav.Link>
+              <Nav.Link className="App-nav-link" href="/about">
+                <BsPeople style={styles.styleNavBar} /> Nosotros
+              </Nav.Link>
+              <Nav.Link className="App-nav-link" href="/contact">
+                <BiPhoneCall style={styles.styleNavBar} /> Contacto
+              </Nav.Link>
+              <Nav.Link className="App-nav-link" href="/login">
+                <AiOutlineUser style={styles.styleNavBar} /> Iniciar Sesión
+              </Nav.Link>
             </Navbar>
             <Switch>
               <Route exact path="/" component={Home} />
