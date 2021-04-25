@@ -7,3 +7,8 @@
     justify-content: start;
     align-items: center;
 }
+
+.btn {
+    display: flex;
+    align-items: center;
+}
