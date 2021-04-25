@@ -48,7 +48,7 @@ function Login() {
                                 <button type="submit" className="btn btn-primary btn-block" style={styles.styleButton}>Iniciar Sesión</button>
                                 <br></br>
                                 <p className="forgot-password">
-                                    ¿Aun no se encuentra registrado? <a href="/register">Registrese aquí</a>
+                                    ¿Aun no se encuentra registrado? <a href="/FrancaPaisa/register/">Registrese aquí</a>
                                 </p>
                             </form>
                         </div>
