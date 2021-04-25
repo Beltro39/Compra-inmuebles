@@ -200,7 +200,7 @@ function Home() {
 
 
             <div class="container mt-3">
-      <div className="row form-group"> 
+      <div className="row form-group no-gutters"> 
       <div className="col-sm" >
           <div class="card" >
             <img class="card-img-top"  src={houses} alt="Card image cap"/>
@@ -214,37 +214,13 @@ function Home() {
           </div>
         </div>
 
-        <div className="col-sm" >
-          <div class="card" >
-            <img class="card-img-top"  src={houses} alt="Card image cap"/>
-            <div class="card-body bg-dark">
-              <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-              <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-              <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-              <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-               <a href="#" class="btn btn-primary">Más informaciom</a>
-            </div>
-          </div>
-        </div>
+        
 
-        <div className="col-sm" >
-          <div class="card" >
-            <img class="card-img-top"  src={houses} alt="Card image cap"/>
-            <div class="card-body bg-dark">
-              <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-              <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-              <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-              <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-               <a href="#" class="btn btn-primary">Más informaciom</a>
-            </div>
-          </div>
-        </div>
+        
 
       </div>
+      <div className="row form-group no-gutters"> 
 
-
-
-      <div className="row form-group"> 
       <div className="col-sm" >
           <div class="card" >
             <img class="card-img-top"  src={houses} alt="Card image cap"/>
@@ -257,90 +233,13 @@ function Home() {
             </div>
           </div>
         </div>
-
-        <div className="col-sm" >
-          <div class="card" >
-            <img class="card-img-top"  src={houses} alt="Card image cap"/>
-            <div class="card-body bg-dark">
-              <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-              <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-              <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-              <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-               <a href="#" class="btn btn-primary">Más informaciom</a>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-sm" >
-          <div class="card" >
-            <img class="card-img-top"  src={houses} alt="Card image cap"/>
-            <div class="card-body bg-dark">
-              <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-              <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-              <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-              <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-               <a href="#" class="btn btn-primary">Más informaciom</a>
-            </div>
-          </div>
-        </div>
-
-        
-
-        
-
-       
-
-       
       </div>
 
-      <div className="row form-group"> 
-      <div className="col-sm" >
-          <div class="card" >
-            <img class="card-img-top"  src={houses} alt="Card image cap"/>
-            <div class="card-body bg-dark">
-              <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-              <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-              <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-              <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-               <a href="#" class="btn btn-primary">Más informaciom</a>
-            </div>
-          </div>
-        </div>
+      
 
-        <div className="col-sm" >
-          <div class="card" >
-            <img class="card-img-top"  src={houses} alt="Card image cap"/>
-            <div class="card-body bg-dark">
-              <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-              <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-              <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-              <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-               <a href="#" class="btn btn-primary">Más informaciom</a>
-            </div>
-          </div>
-        </div>
 
-        <div className="col-sm" >
-          <div class="card" >
-            <img class="card-img-top"  src={houses} alt="Card image cap"/>
-            <div class="card-body bg-dark">
-              <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-              <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-              <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-              <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-               <a href="#" class="btn btn-primary">Más informaciom</a>
-            </div>
-          </div>
-        </div>
+      
 
-        
-
-        
-
-       
-
-       
-      </div>
 
 
 
