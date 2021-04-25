@@ -15,4 +15,10 @@
 
 ### Información bases de datos:
 
+Base de datos de almacenamiento de resultados del web scrapping.
+
+    fp_scrapping
+    USER "FrancaPaisa"
+    PASSWORD 'FP#$tS'
+
 **Nota: Ejemplo de nota**
