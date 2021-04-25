@@ -5,7 +5,7 @@ import { Navbar, Nav } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
-  Route, 
+  Route,
   Link
 } from "react-router-dom";
 import { GoLocation } from 'react-icons/go';
