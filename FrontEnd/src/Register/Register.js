@@ -58,7 +58,7 @@ function Register() {
                                 <button type="submit" className="btn btn-primary btn-block" style={styles.styleButton}>Registrarse</button>
                                 <br></br>
                                 <p className="forgot-password">
-                                    ¿Ya se encuentra registrado? <a href="/login">Iniciar Sesión</a>
+                                    ¿Ya se encuentra registrado? <a href="/FrancaPaisa/login">Iniciar Sesión</a>
                                 </p>
                             </form>
                         </div>
