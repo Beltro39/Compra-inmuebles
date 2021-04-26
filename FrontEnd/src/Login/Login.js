@@ -17,8 +17,9 @@ function Login() {
         },
         styleButton: {
             marginBottom: 5,
-            backgroundColor: "blue"
-        },
+            backgroundColor: "blue",
+            justifyContent: 'center',
+        }
     }
 
     return (
