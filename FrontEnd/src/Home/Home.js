@@ -2,6 +2,7 @@ import houses from '../assets/casa.jpg';
 import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
+import Pagination from '@material-ui/lab/Pagination';
 
 const styles = {
   styleForm: {
@@ -36,6 +37,11 @@ function Home() {
       textAlign: "center",
       fontWeight: "bold",
     },
+
+    stylePagination: {
+      backgroundColor: "#454a55",
+      color: "white",
+    }
   };
 
   const [buttonName, setButtonName] = useState("Cuadricula");
@@ -240,6 +246,13 @@ function Home() {
         </div>
         <br></br>
       </header>
+
+      <footer className= "Home-Footer" >
+        <div className="row justify-content-center" style={styles.stylePagination}>
+          <Pagination count={10} color="primary" />
+        </div>
+      </footer>
+
     </div>
 
 
@@ -388,17 +401,8 @@ function showMoreElements() {
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
-
       </div>
     </div>
-
   );
 }
 
