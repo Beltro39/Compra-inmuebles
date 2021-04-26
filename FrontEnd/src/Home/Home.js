@@ -1,6 +1,7 @@
 import houses from '../assets/casa.jpg';
 import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Pagination } from 'react-bootstrap';
 
 const styles = {
   styleForm: {
@@ -332,36 +333,33 @@ function Home() {
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    </div>
 
-        
-
-        
-
-       
-
-       
       </div>
 
-
-
-
-      </div>
-              
-
-
-
-
-            </div>
-
-          </div>
-
+    </div>
+    <br></br>
+    </header>
+      <footer className= "Home-Footer">
+        <div className="row justify-content-center">
+          <Pagination>
+            <Pagination.First />
+            <Pagination.Prev />
+            <Pagination.Item>{1}</Pagination.Item>
+            <Pagination.Ellipsis />
+            <Pagination.Item>{3}</Pagination.Item>
+            <Pagination.Item>{4}</Pagination.Item>
+            <Pagination.Item active>{5}</Pagination.Item>
+            <Pagination.Item>{6}</Pagination.Item>
+            <Pagination.Item>{7}</Pagination.Item>
+            <Pagination.Ellipsis />
+            <Pagination.Item disabled>{10}</Pagination.Item>
+            <Pagination.Last />
+          </Pagination>
         </div>
-        <br></br>
-      </header>
-      
-
-     
-
+      </footer>
     </div>
     
 
