@@ -7,3 +7,25 @@
     justify-content: start;
     align-items: center;
 }
+
+.btn {
+    display: flex;
+    align-items: center;
+}
+
+
+.col-sm{
+    display: flex;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.button{
+    height: 35%;
+    width: 45;
+}

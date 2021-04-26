@@ -2,6 +2,7 @@
   "name": "franca_paisa",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "/FrancaPaisa/", 
   "dependencies": {
     "@iconscout/react-unicons": "^1.1.6",
     "@react-icons/all-files": "^4.1.0",
