@@ -79,9 +79,30 @@ WSGI_APPLICATION = 'Archivos_Base.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fp_principal',
+        'USER': 'FrancaPaisa',
+        'PASSWORD': 'FP#$tS',
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
+    },
+    'fp_scrapping': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fp_scrapping',
+        'USER': 'FrancaPaisa',
+        'PASSWORD': 'FP#$tS',
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
+    },
+    'fp_principal': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fp_principal',
+        'USER': 'FrancaPaisa',
+        'PASSWORD': 'FP#$tS',
+        'HOST': '127.0.0.1',
+        'PORT': '5432'
     }
+
 }
 
 
