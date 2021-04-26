@@ -8,11 +8,31 @@
     align-items: center;
 }
 
-.btn {
-    align-items: center;
-    margin-bottom: auto;
-}
+
 
 .Home-header{
     width: 100%;
+}
+
+
+.col-sm{
+    display: flex;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+
+}
+
+.btn{
+    
+    font-weight: bold;
+    
+}
+
+.button{
+    width: 60%;
 }
