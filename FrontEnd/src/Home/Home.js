@@ -3,6 +3,7 @@ import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 
+
 const styles = {
   styleForm: {
     border: '2px solid grey',
@@ -36,6 +37,11 @@ function Home() {
       textAlign: "center",
       fontWeight: "bold",
     },
+
+    stylePagination: {
+      backgroundColor: "#454a55",
+      color: "white",
+    }
   };
 
   const [buttonName, setButtonName] = useState("Cuadricula");
@@ -51,7 +57,7 @@ function Home() {
 
   return (
     <div className="Home">
-      <header className="Home-header">
+      <header className="Home-header container-fluid">
 
         <div className="row justify-content-left">
           <br></br>
@@ -92,7 +98,7 @@ function Home() {
                   </label>
                 </div>
 
-                <div className="form-check">
+                <div className="form-check mb-3">
                   <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
                   <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
                     Oficina
@@ -165,7 +171,7 @@ function Home() {
                   </label>
                 </div>
 
-                <div className="form-check">
+                <div className="form-check mb-3">
                   <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" ></input>
                   <label className="form-check-label" for="flexCheckDefault"
                     style={styles.styleLabel}
@@ -200,7 +206,7 @@ function Home() {
                   </label>
                 </div>
 
-                <div className="form-check">
+                <div className="form-check mb-3">
                   <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
                   <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
                     Más de cuatro
@@ -215,7 +221,7 @@ function Home() {
 
            
               <div class="container mt-3">
-                <button type="submit" className="btn btn-primary btn-block" onClick={() => changeView()}>
+                <button type="submit" className="btn btn-primary btn-block mb-3" onClick={() => changeView()}>
                   {buttonName}
                 </button>
 
@@ -240,7 +246,13 @@ function Home() {
 
         </div>
         <br></br>
-         </header>
+
+        
+      </header>
+
+      
+
+         
     </div>
 
 
@@ -507,32 +519,8 @@ function showMoreElements() {
         </div>
       </div>
     </div>
-
-   
-
     </div>
-
-
-
-  </div>
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-      
-   
-
+    </div>
   );
 }
 
