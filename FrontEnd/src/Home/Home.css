@@ -9,6 +9,10 @@
 }
 
 .btn {
-    display: flex;
     align-items: center;
+    margin-bottom: auto;
+}
+
+.Home-header{
+    width: 100%;
 }
