@@ -2,3 +2,8 @@
     text-align: left;
 }
 
+.form-check {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
