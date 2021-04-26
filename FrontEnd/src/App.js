@@ -5,7 +5,8 @@ import { Navbar, Nav } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Link
 } from "react-router-dom";
 import { GoLocation } from 'react-icons/go';
 import { BiPhoneCall } from 'react-icons/bi';
@@ -21,6 +22,9 @@ import Home from './Home/Home';
 import PageNotFound from './PageNotFound/PageNotFound';
 import Login from './Login/Login';
 import Register from './Register/Register';
+
+import { createBrowserHistory } from 'history';
+export const browserHistory = createBrowserHistory({basename : "/FrancaPaisa"});
 
 function App() {
 
@@ -41,20 +45,20 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Router>
+        <Router history={browserHistory} basename = {'/FrancaPaisa'}>
           <div>
             <img src={banner} className="App-logo" alt="logo" />
             <Navbar className="App-navbar justify-content-center" bg="dark" variant="dark" sticky="top">
-              <Nav.Link className="App-nav-link" href="/">
+              <Nav.Link className="App-nav-link" href="/FrancaPaisa/">
                 <AiOutlineHome style={styles.styleNavBar} /> Inmuebles
               </Nav.Link>
-              <Nav.Link className="App-nav-link" href="/about">
+              <Nav.Link className="App-nav-link" href="/FrancaPaisa/about">
                 <BsPeople style={styles.styleNavBar} /> Nosotros
               </Nav.Link>
-              <Nav.Link className="App-nav-link" href="/contact">
+              <Nav.Link className="App-nav-link" href="/FrancaPaisa/contact">
                 <BiPhoneCall style={styles.styleNavBar} /> Contacto
               </Nav.Link>
-              <Nav.Link className="App-nav-link" href="/login">
+              <Nav.Link className="App-nav-link" href="/FrancaPaisa/login">
                 <AiOutlineUser style={styles.styleNavBar} /> Iniciar Sesión
               </Nav.Link>
             </Navbar>
@@ -79,7 +83,7 @@ function App() {
             <h5><BiPhoneCall style={styles.styleIcons} /> +57 301123456</h5>
           </div>
           <div className="col-md-auto" style={styles.styleContactInfo}>
-            <h5><AiOutlineQuestionCircle style={styles.styleIcons} /> ¿Dudas quejas o reclamos? <a href="/contact">Contactenos</a></h5>
+            <h5><AiOutlineQuestionCircle style={styles.styleIcons} /> ¿Dudas quejas o reclamos? <a href = "/FrancaPaisa/contact">Contactenos</a></h5>
           </div>
         </div>
       </footer>
