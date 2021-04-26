@@ -100,7 +100,7 @@ CREATE TABLE "TipoScrapping"
   "area_construida"                   FLOAT,
   "descripcion"                       VARCHAR(2000),
   "vendedor"                          VARCHAR(2000),
-  "cantidad_banos"                    INTEGER         NOT NULL
+  "cantidad_banos"                    INTEGER         NOT NULL,
   "costo_administracion"              BIGINT,
   "cantidad_parqueaderos"             INTEGER,
   "costo_servicios_publicos"          BIGINT,
