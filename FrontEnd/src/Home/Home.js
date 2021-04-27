@@ -2,6 +2,7 @@ import houses from '../assets/casa.jpg';
 import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
+import { Pagination } from '@material-ui/lab';
 
 
 const styles = {
