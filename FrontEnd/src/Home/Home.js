@@ -246,7 +246,7 @@ function Home() {
         
       </header>
       
-      {/* Contenedor del futer y de la paginación de las paginas */}
+      {/* Contenedor del footer y de la paginación de las paginas */}
       <footer className= "Home-Footer" >
         <div className="row justify-content-center">
           <Pagination count={10} color="primary" />
