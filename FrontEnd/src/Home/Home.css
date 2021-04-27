@@ -8,13 +8,20 @@
     align-items: center;
 }
 
-.btn {
-    align-items: center;
-    margin-bottom: auto;
-}
+
 
 .Home-header{
     width: 100%;
+}
+.btn {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+
+
+.col-sm{
+    display: flex;
 }
 
 /* Color de los números en la paginación */
@@ -25,4 +32,21 @@
 /* Color de los 3 puntos de la paginación */
 .Home-Footer div  {
     color:white;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+
+}
+
+.btn{
+    
+    font-weight: bold;
+    
+}
+
+.button{
+    width: 60%;
 }
