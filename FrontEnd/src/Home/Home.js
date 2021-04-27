@@ -37,11 +37,6 @@ function Home() {
       textAlign: "center",
       fontWeight: "bold",
     },
-
-    stylePagination: {
-      backgroundColor: "#454a55",
-      color: "white",
-    }
   };
 
   const [buttonName, setButtonName] = useState("Cuadricula");
@@ -246,9 +241,10 @@ function Home() {
         </div>
         <br></br>
       </header>
-
+      
+      {/* Contenedor del futer y de la paginación de las paginas */}
       <footer className= "Home-Footer" >
-        <div className="row justify-content-center" style={styles.stylePagination}>
+        <div className="row justify-content-center">
           <Pagination count={10} color="primary" />
         </div>
       </footer>

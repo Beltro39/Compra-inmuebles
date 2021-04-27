@@ -16,3 +16,13 @@
 .Home-header{
     width: 100%;
 }
+
+/* Color de los números en la paginación */
+.Home-Footer div li button {
+    color:white;
+}
+
+/* Color de los 3 puntos de la paginación */
+.Home-Footer div  {
+    color:white;
+}
