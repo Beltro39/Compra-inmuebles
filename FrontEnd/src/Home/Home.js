@@ -2,6 +2,7 @@ import houses from '../assets/casa.jpg';
 import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
+import { Pagination } from '@material-ui/lab';
 
 
 const styles = {
@@ -37,11 +38,6 @@ function Home() {
       textAlign: "center",
       fontWeight: "bold",
     },
-
-    stylePagination: {
-      backgroundColor: "#454a55",
-      color: "white",
-    }
   };
 
   const [buttonName, setButtonName] = useState("Cuadricula");
@@ -249,6 +245,13 @@ function Home() {
 
         
       </header>
+      
+      {/* Contenedor del footer y de la paginación de las paginas */}
+      <footer className= "Home-Footer" >
+        <div className="row justify-content-center">
+          <Pagination count={10} color="primary" />
+        </div>
+      </footer>
 
       
 
