@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 
 
+
 const styles = {
   styleForm: {
     border: '2px solid grey',
@@ -247,22 +248,17 @@ function Home() {
         <br></br>
 
         
-<<<<<<< Updated upstream
-      </div>
-
-=======
      
       
       {/* Contenedor del footer y de la paginación de las paginas */}
       
-      </div>
+      
       <footer className= "Home-Footer" >
         <div className="row justify-content-center">
-          <Pagination count={10} color="primary" />
+        { /* <Pagination count={10} color="primary" /> */}
         </div>
       </footer>
       </div>
->>>>>>> Stashed changes
       
 
          
