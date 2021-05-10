@@ -247,8 +247,22 @@ function Home() {
         <br></br>
 
         
+<<<<<<< Updated upstream
       </div>
 
+=======
+     
+      
+      {/* Contenedor del footer y de la paginación de las paginas */}
+      
+      </div>
+      <footer className= "Home-Footer" >
+        <div className="row justify-content-center">
+          <Pagination count={10} color="primary" />
+        </div>
+      </footer>
+      </div>
+>>>>>>> Stashed changes
       
 
          
