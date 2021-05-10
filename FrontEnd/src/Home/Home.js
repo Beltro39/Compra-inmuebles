@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { Pagination } from '@material-ui/lab';
 
 
+
 const styles = {
   styleForm: {
     border: '2px solid grey',
@@ -246,14 +247,18 @@ function Home() {
      
       
       {/* Contenedor del footer y de la paginación de las paginas */}
+
+      
+      
+      
+
+      </div>
       <footer className= "Home-Footer" >
         <div className="row justify-content-center">
-          <Pagination count={10} color="primary" />
+         <Pagination count={10} color="primary" /> 
         </div>
       </footer>
       </div>
-      </div>
-      
 
          
 
