@@ -19,6 +19,8 @@ function Login() {
             marginBottom: 5,
             backgroundColor: "blue",
             justifyContent: 'center',
+        
+            color: "white"
         }
     }
 
@@ -27,28 +29,29 @@ function Login() {
             <header className="Login-header">
                 <br></br>
                 <div className="row justify-content-center">
-                    <div className="col-md-6">
+                    <div className="col-lg-6 col-10 col-sm-8">
                         <div className="container" style={styles.styleForm}>
                             <div className="row justify-content-center" style={styles.styleFormHeader}>
                                 Iniciar Sesión
                             </div>
-                            <br></br>
-                            <form>
+                            
+                            <form class="justify-content-center">
 
-                                <div className="form-group">
+                                <div className="form-group mt-4">
                                     <label>Correo</label>
                                     <input type="email" className="form-control" />
                                 </div>
 
-                                <div className="form-group">
+                                <div className="form-group mt-5">
                                     <label>Contraseña</label>
                                     <input type="password" className="form-control" />
                                 </div>
 
-                                <br></br>
-                                <button type="submit" className="btn btn-primary btn-block" style={styles.styleButton}>Iniciar Sesión</button>
-                                <br></br>
-                                <p className="forgot-password">
+                                <div className="row justify-content-center mt-5 ">
+                                <button type="submit" className="btn" style={styles.styleButton}>Iniciar Sesión</button>
+                                </div>
+
+                                <p className="forgot-password mt-4">
                                     ¿Aun no se encuentra registrado? <a href="/FrancaPaisa/register/">Registrese aquí</a>
                                 </p>
                             </form>

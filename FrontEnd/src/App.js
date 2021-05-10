@@ -1,6 +1,7 @@
 import banner from './assets/banner.png';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 import { Navbar, Nav } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
@@ -44,24 +45,30 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header class="">
         <Router history={browserHistory} basename = {'/FrancaPaisa'}>
-          <div>
-            <img src={banner} className="App-logo" alt="logo" />
-            <Navbar className="App-navbar justify-content-center" bg="dark" variant="dark" sticky="top">
-              <Nav.Link className="App-nav-link" href="/FrancaPaisa/">
+            <img src={banner} className="App-logo " alt="logo" />
+            <nav className="navbar-dark navbar-expand-sm navbar App-navbar sticky-top bg-dark" id="nav"> 
+              <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon" ></span>
+              </button>
+              <div class="collapse navbar-collapse " id="navbarNav"> 
+                
+              <Nav.Link className="App-nav-link " href="/FrancaPaisa/">
                 <AiOutlineHome style={styles.styleNavBar} /> Inmuebles
               </Nav.Link>
-              <Nav.Link className="App-nav-link" href="/FrancaPaisa/about">
+              <Nav.Link className="App-nav-link " href="/FrancaPaisa/about">
                 <BsPeople style={styles.styleNavBar} /> Nosotros
               </Nav.Link>
-              <Nav.Link className="App-nav-link" href="/FrancaPaisa/contact">
+              <Nav.Link className="App-nav-link " href="/FrancaPaisa/contact">
                 <BiPhoneCall style={styles.styleNavBar} /> Contacto
               </Nav.Link>
-              <Nav.Link className="App-nav-link" href="/FrancaPaisa/login">
+              <Nav.Link className="App-nav-link " href="/FrancaPaisa/login">
                 <AiOutlineUser style={styles.styleNavBar} /> Iniciar Sesión
               </Nav.Link>
-            </Navbar>
+              </div>
+             
+            </nav>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/about" component={AboutUs} />
@@ -70,7 +77,7 @@ function App() {
               <Route exact path="/register" component={Register} />
               <Route component={PageNotFound} />
             </Switch>
-          </div>
+        
         </Router>
         <br></br>
       </header>
