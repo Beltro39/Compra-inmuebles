@@ -2,7 +2,7 @@
   "name": "franca_paisa",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "/FrancaPaisa/", 
+  "homepage": "http:///FrancaPaisa/",
   "dependencies": {
     "@iconscout/react-unicons": "^1.1.6",
     "@react-icons/all-files": "^4.1.0",
@@ -10,6 +10,8 @@
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.12.9",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
@@ -41,5 +43,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beltro39/Compra-Inmuebles.git"
+  },
+  "author": "FrancaPaisa.SA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Beltro39/Compra-Inmuebles/issues"
   }
 }

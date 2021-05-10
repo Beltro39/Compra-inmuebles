@@ -21,7 +21,6 @@ function Home() {
     styleForm: {
       border: "1px solid grey",
       textAlign: "left",
-      margin: "5px",
     },
 
     styleLabel: {
@@ -56,15 +55,15 @@ function Home() {
   let showString;
 
   return (
-    <div className="Home">
-      <header className="Home-header container-fluid">
+
+      <div className="container Home">
 
         <div className="row justify-content-left">
           <br></br>
           <div className="row">
 
             {/* Contenedor de los filtros */}
-            <div className="col-sm-auto" style={styles.styleForm}>
+            <div className="col-md-auto" style={styles.styleForm}>
               <p style={styles.styleTitle}>Filtros</p>
 
               {/* Contenedor de los checkbox para el tipo de inmueble */}
@@ -220,8 +219,8 @@ function Home() {
 
 
            
-              <div class="container mt-3">
-                <button type="submit" className="btn btn-primary btn-block mb-3" onClick={() => changeView()}>
+              <div class="container mt-3 ">
+                <button type="submit" className="btn btn-primary btn-block mb-3 d-none d-lg-block" onClick={() => changeView()}>
                   {buttonName}
                 </button>
 
@@ -248,12 +247,12 @@ function Home() {
         <br></br>
 
         
-      </header>
+      </div>
 
       
 
          
-    </div>
+
 
 
   );
@@ -262,116 +261,210 @@ function Home() {
 function showListedElements() {
   return (
     <div >
-    <div class="card form-group" >
-    <div class="row no-gutters">
-    <div class="col-sm">
- <img class="card-img-top" src={houses} alt="Card image cap" />
+      
+    <div class="card form-group bg-dark border-light" >
+     
+    <div class="row no-gutters ">
+    <div class="col-lg-5 ">
+     <img class="card-img " src={houses}/>
+    </div>
+    <div class="col-lg-4">
+    <div class="card-body bg-dark">
+      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
+      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
+      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
+      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+     </div>
+   </div>
+   <div class="col-lg-3 center bg-dark">
+   <a href="#" class="btn btn-primary button m-2">Más información</a>
+   </div>
  </div>
- <div class="col-sm">
- <div class="card-body bg-dark">
-   <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-   <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-   <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-   <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+ </div>
+         
+ <div class="card form-group bg-dark border-light" >
+     
+     <div class="row no-gutters ">
+     <div class="col-lg-5 ">
+      <img class="card-img " src={houses}/>
+     </div>
+     <div class="col-lg-4">
+     <div class="card-body bg-dark">
+       <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
+       <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
+       <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
+       <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+      </div>
+    </div>
+    <div class="col-lg-3 center bg-dark">
+    <a href="#" class="btn btn-primary button m-2">Más información</a>
+    </div>
+  </div>
+  </div>
+
+  <div class="card form-group bg-dark border-light" >
+     
+    <div class="row no-gutters ">
+    <div class="col-lg-5 ">
+     <img class="card-img " src={houses}/>
+    </div>
+    <div class="col-lg-4">
+    <div class="card-body bg-dark">
+      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
+      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
+      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
+      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+     </div>
    </div>
-   </div>
-   <div class="col-sm center bg-dark">
-   <a href="#" class="btn btn-primary button">Más información</a>
+   <div class="col-lg-3 center bg-dark">
+   <a href="#" class="btn btn-primary button m-2">Más información</a>
    </div>
  </div>
  </div>
 
- <div class="card form-group" >
-    <div class="row no-gutters">
-    <div class="col-sm">
- <img class="card-img-top" src={houses} alt="Card image cap" />
- </div>
- <div class="col-sm">
- <div class="card-body bg-dark">
-   <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-   <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-   <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-   <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+ <div class="card form-group bg-dark border-light" >
+     
+    <div class="row no-gutters ">
+    <div class="col-lg-5 ">
+     <img class="card-img " src={houses}/>
+    </div>
+    <div class="col-lg-4">
+    <div class="card-body bg-dark">
+      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
+      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
+      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
+      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+     </div>
    </div>
-   </div>
-   <div class="col-sm center bg-dark">
-   <a href="#" class="btn btn-primary button">Más información</a>
+   <div class="col-lg-3 center bg-dark">
+   <a href="#" class="btn btn-primary button m-2">Más información</a>
    </div>
  </div>
  </div>
 
- <div class="card form-group" >
-    <div class="row no-gutters">
-    <div class="col-sm">
- <img class="card-img-top" src={houses} alt="Card image cap" />
- </div>
- <div class="col-sm">
- <div class="card-body bg-dark">
-   <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-   <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-   <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-   <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+ <div class="card form-group bg-dark border-light" >
+     
+    <div class="row no-gutters ">
+    <div class="col-lg-5 ">
+     <img class="card-img " src={houses}/>
+    </div>
+    <div class="col-lg-4">
+    <div class="card-body bg-dark">
+      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
+      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
+      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
+      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+     </div>
    </div>
-   </div>
-   <div class="col-sm center bg-dark">
-   <a href="#" class="btn btn-primary button">Más información</a>
-   </div>
- </div>
- </div>
- <div class="card form-group" >
-    <div class="row no-gutters">
-    <div class="col-sm">
- <img class="card-img-top" src={houses} alt="Card image cap" />
- </div>
- <div class="col-sm">
- <div class="card-body bg-dark">
-   <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-   <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-   <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-   <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-   </div>
-   </div>
-   <div class="col-sm center bg-dark">
-   <a href="#" class="btn btn-primary button">Más información</a>
+   <div class="col-lg-3 center bg-dark">
+   <a href="#" class="btn btn-primary button m-2">Más información</a>
    </div>
  </div>
  </div>
- <div class="card form-group" >
-    <div class="row no-gutters">
-    <div class="col-sm">
- <img class="card-img-top" src={houses} alt="Card image cap" />
- </div>
- <div class="col-sm">
- <div class="card-body bg-dark">
-   <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-   <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-   <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-   <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+
+ <div class="card form-group bg-dark border-light" >
+     
+    <div class="row no-gutters ">
+    <div class="col-lg-5 ">
+     <img class="card-img " src={houses}/>
+    </div>
+    <div class="col-lg-4">
+    <div class="card-body bg-dark">
+      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
+      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
+      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
+      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+     </div>
    </div>
-   </div>
-   <div class="col-sm center bg-dark">
-   <a href="#" class="btn btn-primary button">Más información</a>
-   </div>
- </div>
- </div>
- <div class="card form-group" >
-    <div class="row no-gutters">
-    <div class="col-sm">
- <img class="card-img-top" src={houses} alt="Card image cap" />
- </div>
- <div class="col-sm">
- <div class="card-body bg-dark">
-   <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-   <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-   <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-   <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-   </div>
-   </div>
-   <div class="col-sm center bg-dark">
-   <a href="#" class="btn btn-primary button">Más información</a>
+   <div class="col-lg-3 center bg-dark">
+   <a href="#" class="btn btn-primary button m-2">Más información</a>
    </div>
  </div>
  </div>
+
+ <div class="card form-group bg-dark border-light" >
+     
+    <div class="row no-gutters ">
+    <div class="col-lg-5 ">
+     <img class="card-img " src={houses}/>
+    </div>
+    <div class="col-lg-4">
+    <div class="card-body bg-dark">
+      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
+      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
+      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
+      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+     </div>
+   </div>
+   <div class="col-lg-3 center bg-dark">
+   <a href="#" class="btn btn-primary button m-2">Más información</a>
+   </div>
+ </div>
+ </div>
+
+ <div class="card form-group bg-dark border-light" >
+     
+    <div class="row no-gutters ">
+    <div class="col-lg-5 ">
+     <img class="card-img " src={houses}/>
+    </div>
+    <div class="col-lg-4">
+    <div class="card-body bg-dark">
+      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
+      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
+      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
+      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+     </div>
+   </div>
+   <div class="col-lg-3 center bg-dark">
+   <a href="#" class="btn btn-primary button m-2">Más información</a>
+   </div>
+ </div>
+ </div>
+
+ <div class="card form-group bg-dark border-light" >
+     
+    <div class="row no-gutters ">
+    <div class="col-lg-5 ">
+     <img class="card-img " src={houses}/>
+    </div>
+    <div class="col-lg-4">
+    <div class="card-body bg-dark">
+      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
+      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
+      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
+      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+     </div>
+   </div>
+   <div class="col-lg-3 center bg-dark">
+   <a href="#" class="btn btn-primary button m-2">Más información</a>
+   </div>
+ </div>
+ </div>
+
+ <div class="card form-group bg-dark border-light" >
+     
+    <div class="row no-gutters ">
+    <div class="col-lg-5 ">
+     <img class="card-img " src={houses}/>
+    </div>
+    <div class="col-lg-4">
+    <div class="card-body bg-dark">
+      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
+      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
+      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
+      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
+     </div>
+   </div>
+   <div class="col-lg-3 center bg-dark">
+   <a href="#" class="btn btn-primary button m-2">Más información</a>
+   </div>
+ </div>
+ </div>
+
+
+ 
+
 
  </div>
 
@@ -385,7 +478,7 @@ function showMoreElements() {
       <div class="row form-group">
 
 
-    <div class="col-sm" >
+    <div class="col-lg col-12 form-group" >
       <div class="card" >
         <img class="card-img-top" src={houses} alt="Card image cap" />
         <div class="card-body bg-dark">
@@ -393,12 +486,15 @@ function showMoreElements() {
           <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
           <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
           <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <a href="#" class="btn btn-primary">Más información</a>
+          <div class="center">
+          <a href="#" class="btn btn-primary button">Más información</a>
+          </div>
+          
         </div>
       </div>
     </div>
 
-    <div className="col-sm" >
+    <div class="col-lg col-12 form-group" >
       <div class="card" >
         <img class="card-img-top" src={houses} alt="Card image cap" />
         <div class="card-body bg-dark">
@@ -406,13 +502,16 @@ function showMoreElements() {
           <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
           <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
           <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <a href="#" class="btn btn-primary">Más información</a>
+          <div class="center">
+          <a href="#" class="btn btn-primary button">Más información</a>
+          </div>
+          
         </div>
       </div>
     </div>
 
 
-    <div className="col-sm" >
+    <div class="col-lg col-12 form-group" >
       <div class="card" >
         <img class="card-img-top" src={houses} alt="Card image cap" />
         <div class="card-body bg-dark">
@@ -420,7 +519,10 @@ function showMoreElements() {
           <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
           <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
           <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <a href="#" class="btn btn-primary">Más información</a>
+          <div class="center">
+          <a href="#" class="btn btn-primary button">Más información</a>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -432,7 +534,7 @@ function showMoreElements() {
     <div class="row form-group">
 
 
-    <div class="col-sm" >
+    <div class="col-lg col-12 form-group" >
       <div class="card" >
         <img class="card-img-top" src={houses} alt="Card image cap" />
         <div class="card-body bg-dark">
@@ -440,12 +542,15 @@ function showMoreElements() {
           <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
           <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
           <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <a href="#" class="btn btn-primary">Más información</a>
+          <div class="center">
+          <a href="#" class="btn btn-primary button">Más información</a>
+          </div>
+          
         </div>
       </div>
     </div>
 
-    <div className="col-sm" >
+    <div class="col-lg col-12 form-group" >
       <div class="card" >
         <img class="card-img-top" src={houses} alt="Card image cap" />
         <div class="card-body bg-dark">
@@ -453,13 +558,15 @@ function showMoreElements() {
           <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
           <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
           <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <a href="#" class="btn btn-primary">Más información</a>
+          <div class="center">
+          <a href="#" class="btn btn-primary button">Más información</a>
+          </div>
+          
         </div>
       </div>
     </div>
 
-
-    <div className="col-sm" >
+    <div class="col-lg col-12 form-group" >
       <div class="card" >
         <img class="card-img-top" src={houses} alt="Card image cap" />
         <div class="card-body bg-dark">
@@ -467,7 +574,10 @@ function showMoreElements() {
           <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
           <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
           <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <a href="#" class="btn btn-primary">Más información</a>
+          <div class="center">
+          <a href="#" class="btn btn-primary button">Más información</a>
+          </div>
+          
         </div>
       </div>
     </div>
@@ -476,11 +586,10 @@ function showMoreElements() {
 
     </div>
 
-
     <div class="row form-group">
 
 
-    <div class="col-sm" >
+    <div class="col-lg col-12 form-group" >
       <div class="card" >
         <img class="card-img-top" src={houses} alt="Card image cap" />
         <div class="card-body bg-dark">
@@ -488,12 +597,15 @@ function showMoreElements() {
           <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
           <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
           <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <a href="#" class="btn btn-primary">Más información</a>
+          <div class="center">
+          <a href="#" class="btn btn-primary button">Más información</a>
+          </div>
+          
         </div>
       </div>
     </div>
 
-    <div className="col-sm" >
+    <div class="col-lg col-12 form-group" >
       <div class="card" >
         <img class="card-img-top" src={houses} alt="Card image cap" />
         <div class="card-body bg-dark">
@@ -501,13 +613,16 @@ function showMoreElements() {
           <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
           <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
           <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <a href="#" class="btn btn-primary">Más información</a>
+          <div class="center">
+          <a href="#" class="btn btn-primary button">Más información</a>
+          </div>
+          
         </div>
       </div>
     </div>
 
 
-    <div className="col-sm" >
+    <div class="col-lg col-12 form-group" >
       <div class="card" >
         <img class="card-img-top" src={houses} alt="Card image cap" />
         <div class="card-body bg-dark">
@@ -515,11 +630,18 @@ function showMoreElements() {
           <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
           <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
           <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <a href="#" class="btn btn-primary">Más información</a>
+          <div class="center">
+          <a href="#" class="btn btn-primary button">Más información</a>
+          </div>
+          
         </div>
       </div>
     </div>
+   
+
     </div>
+
+    
     </div>
   );
 }
