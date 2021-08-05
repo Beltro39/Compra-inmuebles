@@ -12,6 +12,7 @@ const Gridcards = props => {
                     <a href="#" class="btn btn-primary">Más información</a>
                 </div>
             </div>
+            <br></br>
         </div>
         
     )
