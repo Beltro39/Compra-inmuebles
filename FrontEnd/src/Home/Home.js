@@ -7,6 +7,7 @@ import Gridcards from './Gridcards';
 import Listcards from './Listcards';
 
 
+
 const styles = {
   styleForm: {
     border: '2px solid grey',
@@ -24,7 +25,6 @@ function Home() {
     styleForm: {
       border: "1px solid grey",
       textAlign: "left",
-      margin: "5px",
     },
 
     styleLabel: {
@@ -54,15 +54,15 @@ function Home() {
   let showString;
 
   return (
-    <div className="Home">
-      <header className="Home-header container-fluid">
+
+      <div className="container Home">
 
         <div className="row justify-content-left">
           <br></br>
           <div className="row">
 
             {/* Contenedor de los filtros */}
-            <div className="col-sm-auto" style={styles.styleForm}>
+            <div className="col-md-auto" style={styles.styleForm}>
               <p style={styles.styleTitle}>Filtros</p>
 
               {/* Contenedor de los checkbox para el tipo de inmueble */}
@@ -218,8 +218,8 @@ function Home() {
 
 
            
-              <div class="container mt-3">
-                <button type="submit" className="btn btn-primary btn-block mb-3" onClick={() => changeView()}>
+              <div class="container mt-3 ">
+                <button type="submit" className="btn btn-primary btn-block mb-3 d-none d-lg-block" onClick={() => changeView()}>
                   {buttonName}
                 </button>
 
@@ -242,23 +242,28 @@ function Home() {
 
           </div>
 
-        </div>
+        
         <br></br>
 
         
-      </header>
+     
       
       {/* Contenedor del footer y de la paginación de las paginas */}
-      <footer className= "Home-Footer" >
-        <div className="row justify-content-center">
-          <Pagination count={10} color="primary" />
-        </div>
-      </footer>
 
       
+      
+      
+
+      </div>
+      <footer className= "Home-Footer" >
+        <div className="row justify-content-center">
+         <Pagination count={10} color="primary" /> 
+        </div>
+      </footer>
+      </div>
 
          
-    </div>
+
 
 
   );
@@ -291,6 +296,7 @@ function showMoreElements() {
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>    
       </div>
     </div>
+
   );
 }
 
