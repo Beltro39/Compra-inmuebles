@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import { Pagination } from '@material-ui/lab';
 import Gridcards from './Gridcards';
 import Listcards from './Listcards';
+import Slider from '../Slider/Slider';
+
 
 
 
@@ -59,6 +61,8 @@ function Home() {
 
         <div className="row justify-content-left">
           <br></br>
+          <Slider></Slider>
+          
           <div className="row">
 
             {/* Contenedor de los filtros */}
