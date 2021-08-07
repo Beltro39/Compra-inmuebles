@@ -7,21 +7,6 @@ import Gridcards from './Gridcards';
 import Listcards from './Listcards';
 import Slider from '../Slider/Slider';
 
-
-
-
-const styles = {
-  styleForm: {
-    border: '2px solid grey',
-  },
-  styleLabel: {
-    fontSize: '15px',
-  },
-  styleFormHeader: {
-    backgroundColor: "blue"
-  }
-};
-
 function Home() {
   const styles = {
     styleForm: {
@@ -52,9 +37,6 @@ function Home() {
     setButtonName(showListView ? "Listado" : "Cuadricula")
     console.log("Cualquier texto :v", buttonName)
   }
-
-  let showString;
-
   return (
 
       <div className="container Home">

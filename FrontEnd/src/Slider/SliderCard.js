@@ -7,7 +7,7 @@ const SliderCard = props => {
             <div class="row no-gutters">
 
                 <div className="col-8 ">
-                    <img class="card-img-slider" src={props.img} alt="Card image cap" />
+                    <img class="card-img-slider" src={props.img} alt="Card slider" />
                 </div>
 
                 <div class="col-4">
@@ -17,7 +17,7 @@ const SliderCard = props => {
                         <p class="text-align-left"><strong>Tipo:</strong> {props.tipo}</p>
                         <p class="text-align-left"><strong>Precio:</strong> {props.precio}</p>
                         <p class="text-align-left"><strong>Fuente:</strong> {props.fuente}</p>
-                        <a href="#" class="btn btn-primary button">Más información</a>
+                        <a href="/" class="btn btn-primary button">Más información</a>
 
                     </div>
                 </div>
