@@ -2,12 +2,11 @@ import banner from './assets/banner.png';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import { GoLocation } from 'react-icons/go';
 import { BiPhoneCall } from 'react-icons/bi';

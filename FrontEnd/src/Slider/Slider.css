@@ -1,0 +1,34 @@
+.card-img-slider{
+    width: 100%;
+    height: 400px;
+}
+.label-slider-container{
+    width: 100%;
+    height: 400px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 12%;
+    padding-bottom: 10%;
+}
+
+.carousel-indicators li{
+  height: 6px;
+
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon{
+    width: 40px;
+    height: 40px
+}
+
+.label-slider-container {
+    width: 100%;
+    height: 400px;
+}
+
+.carousel.slide{
+    width: 100%;
+    height: 100%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
