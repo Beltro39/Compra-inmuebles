@@ -7,7 +7,7 @@ const Listcards = props => {
         <div class="card form-group">
             <div class="row no-gutters">
                 <div className="col-sm">
-                    <img class="card-img-top" src={props.img} alt="Card image cap" />
+                    <img class="card-img-top" src={props.img} alt="Card cap" />
                 </div>
 
                 <div class="col-sm">
@@ -20,7 +20,7 @@ const Listcards = props => {
                 </div>
 
                 <div class="col-sm center bg-dark">
-                    <a href="#" class="btn btn-primary button">Más información</a>
+                    <a href="/" class="btn btn-primary button">Más información</a>
                 </div>
             </div>
         </div>

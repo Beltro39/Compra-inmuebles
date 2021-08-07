@@ -5,20 +5,7 @@ import React, { useState } from 'react';
 import { Pagination } from '@material-ui/lab';
 import Gridcards from './Gridcards';
 import Listcards from './Listcards';
-
-
-
-const styles = {
-  styleForm: {
-    border: '2px solid grey',
-  },
-  styleLabel: {
-    fontSize: '15px',
-  },
-  styleFormHeader: {
-    backgroundColor: "blue"
-  }
-};
+import Slider from '../Slider/Slider';
 
 function Home() {
   const styles = {
@@ -50,15 +37,14 @@ function Home() {
     setButtonName(showListView ? "Listado" : "Cuadricula")
     console.log("Cualquier texto :v", buttonName)
   }
-
-  let showString;
-
   return (
 
       <div className="container Home">
 
         <div className="row justify-content-left">
           <br></br>
+          <Slider></Slider>
+          
           <div className="row">
 
             {/* Contenedor de los filtros */}
