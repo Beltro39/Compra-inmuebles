@@ -1,0 +1,8 @@
+.swal2-html-container{
+    color: white !important;
+    font-size: calc(10px + 2vmin) !important;
+}
+
+.swal2-styled.swal2-confirm{
+    background-color: blue !important;
+}
