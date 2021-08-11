@@ -3,20 +3,9 @@ import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from 'react';
 import { Pagination } from '@material-ui/lab';
-
-
-
-const styles = {
-  styleForm: {
-    border: '2px solid grey',
-  },
-  styleLabel: {
-    fontSize: '15px',
-  },
-  styleFormHeader: {
-    backgroundColor: "blue"
-  }
-};
+import Gridcards from './Gridcards';
+import Listcards from './Listcards';
+import Slider from '../Slider/Slider';
 
 function Home() {
   const styles = {
@@ -48,15 +37,14 @@ function Home() {
     setButtonName(showListView ? "Listado" : "Cuadricula")
     console.log("Cualquier texto :v", buttonName)
   }
-
-  let showString;
-
   return (
 
       <div className="container Home">
 
         <div className="row justify-content-left">
           <br></br>
+          <Slider></Slider>
+          
           <div className="row">
 
             {/* Contenedor de los filtros */}
@@ -267,391 +255,34 @@ function Home() {
   );
 }
 
+//Función para mostrar los inmuebles en forma de listado
 function showListedElements() {
   return (
     <div >
-      
-    <div class="card form-group bg-dark border-light" >
-     
-    <div class="row no-gutters ">
-    <div class="col-lg-5 ">
-     <img class="card-img " src={houses}/>
+        <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>
+        <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>
+        <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>
+        <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>
+        <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>
     </div>
-    <div class="col-lg-4">
-    <div class="card-body bg-dark">
-      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-     </div>
-   </div>
-   <div class="col-lg-3 center bg-dark">
-   <a href="#" class="btn btn-primary button m-2">Más información</a>
-   </div>
- </div>
- </div>
-         
- <div class="card form-group bg-dark border-light" >
-     
-     <div class="row no-gutters ">
-     <div class="col-lg-5 ">
-      <img class="card-img " src={houses}/>
-     </div>
-     <div class="col-lg-4">
-     <div class="card-body bg-dark">
-       <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-       <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-       <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-       <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-      </div>
-    </div>
-    <div class="col-lg-3 center bg-dark">
-    <a href="#" class="btn btn-primary button m-2">Más información</a>
-    </div>
-  </div>
-  </div>
-
-  <div class="card form-group bg-dark border-light" >
-     
-    <div class="row no-gutters ">
-    <div class="col-lg-5 ">
-     <img class="card-img " src={houses}/>
-    </div>
-    <div class="col-lg-4">
-    <div class="card-body bg-dark">
-      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-     </div>
-   </div>
-   <div class="col-lg-3 center bg-dark">
-   <a href="#" class="btn btn-primary button m-2">Más información</a>
-   </div>
- </div>
- </div>
-
- <div class="card form-group bg-dark border-light" >
-     
-    <div class="row no-gutters ">
-    <div class="col-lg-5 ">
-     <img class="card-img " src={houses}/>
-    </div>
-    <div class="col-lg-4">
-    <div class="card-body bg-dark">
-      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-     </div>
-   </div>
-   <div class="col-lg-3 center bg-dark">
-   <a href="#" class="btn btn-primary button m-2">Más información</a>
-   </div>
- </div>
- </div>
-
- <div class="card form-group bg-dark border-light" >
-     
-    <div class="row no-gutters ">
-    <div class="col-lg-5 ">
-     <img class="card-img " src={houses}/>
-    </div>
-    <div class="col-lg-4">
-    <div class="card-body bg-dark">
-      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-     </div>
-   </div>
-   <div class="col-lg-3 center bg-dark">
-   <a href="#" class="btn btn-primary button m-2">Más información</a>
-   </div>
- </div>
- </div>
-
- <div class="card form-group bg-dark border-light" >
-     
-    <div class="row no-gutters ">
-    <div class="col-lg-5 ">
-     <img class="card-img " src={houses}/>
-    </div>
-    <div class="col-lg-4">
-    <div class="card-body bg-dark">
-      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-     </div>
-   </div>
-   <div class="col-lg-3 center bg-dark">
-   <a href="#" class="btn btn-primary button m-2">Más información</a>
-   </div>
- </div>
- </div>
-
- <div class="card form-group bg-dark border-light" >
-     
-    <div class="row no-gutters ">
-    <div class="col-lg-5 ">
-     <img class="card-img " src={houses}/>
-    </div>
-    <div class="col-lg-4">
-    <div class="card-body bg-dark">
-      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-     </div>
-   </div>
-   <div class="col-lg-3 center bg-dark">
-   <a href="#" class="btn btn-primary button m-2">Más información</a>
-   </div>
- </div>
- </div>
-
- <div class="card form-group bg-dark border-light" >
-     
-    <div class="row no-gutters ">
-    <div class="col-lg-5 ">
-     <img class="card-img " src={houses}/>
-    </div>
-    <div class="col-lg-4">
-    <div class="card-body bg-dark">
-      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-     </div>
-   </div>
-   <div class="col-lg-3 center bg-dark">
-   <a href="#" class="btn btn-primary button m-2">Más información</a>
-   </div>
- </div>
- </div>
-
- <div class="card form-group bg-dark border-light" >
-     
-    <div class="row no-gutters ">
-    <div class="col-lg-5 ">
-     <img class="card-img " src={houses}/>
-    </div>
-    <div class="col-lg-4">
-    <div class="card-body bg-dark">
-      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-     </div>
-   </div>
-   <div class="col-lg-3 center bg-dark">
-   <a href="#" class="btn btn-primary button m-2">Más información</a>
-   </div>
- </div>
- </div>
-
- <div class="card form-group bg-dark border-light" >
-     
-    <div class="row no-gutters ">
-    <div class="col-lg-5 ">
-     <img class="card-img " src={houses}/>
-    </div>
-    <div class="col-lg-4">
-    <div class="card-body bg-dark">
-      <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-      <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-      <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-      <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-     </div>
-   </div>
-   <div class="col-lg-3 center bg-dark">
-   <a href="#" class="btn btn-primary button m-2">Más información</a>
-   </div>
- </div>
- </div>
-
-
- 
-
-
- </div>
 
   )
 }  
 
+//Función para mostrar los inmuebles en forma de cuadricula
 function showMoreElements() {
   return (
    
     <div >
       <div class="row form-group">
-
-
-    <div class="col-lg col-12 form-group" >
-      <div class="card" >
-        <img class="card-img-top" src={houses} alt="Card image cap" />
-        <div class="card-body bg-dark">
-          <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-          <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-          <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-          <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <div class="center">
-          <a href="#" class="btn btn-primary button">Más información</a>
-          </div>
-          
-        </div>
+        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>    
+        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>    
+        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>    
+        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>    
+        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com"/>    
       </div>
     </div>
 
-    <div class="col-lg col-12 form-group" >
-      <div class="card" >
-        <img class="card-img-top" src={houses} alt="Card image cap" />
-        <div class="card-body bg-dark">
-          <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-          <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-          <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-          <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <div class="center">
-          <a href="#" class="btn btn-primary button">Más información</a>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col-lg col-12 form-group" >
-      <div class="card" >
-        <img class="card-img-top" src={houses} alt="Card image cap" />
-        <div class="card-body bg-dark">
-          <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-          <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-          <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-          <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <div class="center">
-          <a href="#" class="btn btn-primary button">Más información</a>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-   
-
-    </div>
-
-    <div class="row form-group">
-
-
-    <div class="col-lg col-12 form-group" >
-      <div class="card" >
-        <img class="card-img-top" src={houses} alt="Card image cap" />
-        <div class="card-body bg-dark">
-          <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-          <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-          <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-          <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <div class="center">
-          <a href="#" class="btn btn-primary button">Más información</a>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg col-12 form-group" >
-      <div class="card" >
-        <img class="card-img-top" src={houses} alt="Card image cap" />
-        <div class="card-body bg-dark">
-          <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-          <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-          <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-          <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <div class="center">
-          <a href="#" class="btn btn-primary button">Más información</a>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg col-12 form-group" >
-      <div class="card" >
-        <img class="card-img-top" src={houses} alt="Card image cap" />
-        <div class="card-body bg-dark">
-          <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-          <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-          <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-          <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <div class="center">
-          <a href="#" class="btn btn-primary button">Más información</a>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-   
-
-    </div>
-
-    <div class="row form-group">
-
-
-    <div class="col-lg col-12 form-group" >
-      <div class="card" >
-        <img class="card-img-top" src={houses} alt="Card image cap" />
-        <div class="card-body bg-dark">
-          <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-          <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-          <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-          <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <div class="center">
-          <a href="#" class="btn btn-primary button">Más información</a>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg col-12 form-group" >
-      <div class="card" >
-        <img class="card-img-top" src={houses} alt="Card image cap" />
-        <div class="card-body bg-dark">
-          <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-          <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-          <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-          <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <div class="center">
-          <a href="#" class="btn btn-primary button">Más información</a>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col-lg col-12 form-group" >
-      <div class="card" >
-        <img class="card-img-top" src={houses} alt="Card image cap" />
-        <div class="card-body bg-dark">
-          <p class="card-text text-align-left"><strong>Lugar:</strong> Loma de los Bernal</p>
-          <p class="card-text text-align-left"><strong>Tipo:</strong> Casa</p>
-          <p class="card-text text-align-left"><strong>Precio:</strong> 350'000.000</p>
-          <p class="card-text text-align-left"><strong>Fuente:</strong> Fincaraiz.com</p>
-          <div class="center">
-          <a href="#" class="btn btn-primary button">Más información</a>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-   
-
-    </div>
-
-    
-    </div>
   );
 }
 
