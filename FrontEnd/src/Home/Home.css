@@ -1,0 +1,55 @@
+.text-align-left{
+    text-align: left;
+}
+
+.form-check {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+
+.Home-header{
+    width: 100%;
+}
+.btn {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: small;
+}
+
+
+.col-sm{
+    display: flex;
+}
+
+/* Color de los números en la paginación */
+.Home-Footer div li button {
+    color:white;
+}
+
+/* Color de los 3 puntos de la paginación */
+.Home-Footer div  {
+    color:white;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+
+}
+
+
+
+.card-text{
+    font-size: medium;
+}
+
+@media (max-width: 1200px) {
+    .card-text{
+        font-size: small;
+    }
+  }
