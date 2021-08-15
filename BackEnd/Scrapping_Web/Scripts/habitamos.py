@@ -185,7 +185,6 @@ for i in range(0, len(url_fuente2)):
 for i in url_fuente:
     page = requests.get(i)
     soup = BeautifulSoup(page.content, 'html.parser')
-<<<<<<< Updated upstream
     municipio.append(None)
     area_construida.append(None)
     vendedor.append(None)
@@ -193,15 +192,12 @@ for i in url_fuente:
     costo_servicios_publicos.append(None)
     estrato.append(None)
     inmueble_estado_uso.append(None)
-=======
     area_construida.append(0)
     vendedor.append('No especifica')
     costo_administracion.append(0)
     costo_servicios_publicos.append(0)
     estrato.append(0)
     inmueble_nuevo.append(False)
->>>>>>> Stashed changes
-
     for j in soup.find_all('div', {'class': 'table-cell'}):
         nombre.append(j.text)
 
