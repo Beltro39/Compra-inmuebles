@@ -125,6 +125,8 @@ area_total = []
 area_construida = []
 imagen_inmueble = []
 barrio = []
+estrato = []
+costo_servicios_publicos = []
 
 for i in range (1,400):
 
@@ -230,6 +232,9 @@ for i in range (1,400):
     for i in name:
         nombre_publicacion.append(i.text)
         nombre_fuente.append('Properati')
+        costo_servicios_publicos.append(0)
+        estrato.append(0)
+
     for i in name:
         tipo = re.search(r"Apartamento|Casa|Finca|Local|Edificio|Lote|Oficina\WConsultorio",i.text)
         try:
@@ -250,7 +255,7 @@ for i in range (1,400):
             municipio.append(extraccion_zona(zonita))
 
         except AttributeError:
-            barrio.append('Medellin')
+            barrio.append('Medellín')
 
     for i in price:
         i = str (i.text).replace('.','').replace('$','').replace(' ','')
