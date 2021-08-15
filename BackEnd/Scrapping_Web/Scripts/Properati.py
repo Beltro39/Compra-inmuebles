@@ -103,11 +103,15 @@ def extraccion_zona(barrio):
                       "San Cristóbal"]
 
     if barrio is not None:
-        zonaEncontrada = 0
+        zonaEncontrada = False
         for listaActZona in [Medellín_Nororiental, Medellín_Noroccidental, Medellín_Centroriental, Medellín_Centroccidental, Medellín_Suroriental, Medellín_Suroccidental,Medellín_Rural]:
             if barrio in listaActZona:
                 return (listaActZona[0])
                 break
+            else:
+                zonaEncontrada = False
+        if (zonaEncontrada == False):
+            return ('Medellín')
 
 nombre_fuente = []
 nombre_publicacion = []
