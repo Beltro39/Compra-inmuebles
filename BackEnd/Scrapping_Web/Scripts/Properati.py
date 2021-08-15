@@ -139,37 +139,77 @@ for i in range (1,400):
     habitacionArea = soup.find_all('div', class_='StyledInfoIcons-n9541a-9 fgcFIO')
     vinculos = soup.find_all('a')
 
+    # Verifica si llegó al final
+    if (len(name) == 0):
+        print('ha llegado al final')
+        print(len(nombre_publicacion))
+        print(len(valor_inmueble))
+        print(len(barrio))
+        print(len(url_fuente))
+        print(len(cantidad_habitaciones))
+        print(len(cantidad_banos))
+        print(len(cantidad_parqueaderos))
+        print(len(area_total))
+        print(len(area_construida))
+        print(len(tipo_inmueble))
+        print(len(inmueble_nuevo))
+        print(len(vendedor))
+        print(len(imagen_inmueble))
+        print(len(municipio))
+        print(len(nombre_fuente))
+        break
+    else:
+        print('Pagina Externa: ' + url)
+
     # Filtra los que no tengan precio
-    if (len(price) == 0):
+    try:
+        if (len(price) == 0):
+            continue
+    except AttributeError:
         continue
 
-    # Recorre el link inicial y aplica regex para obtener las habitaciones y el área
+    # Recorre el link inicial y aplica regex para obtener las habitaciones y las áreas
+
+    if (len(habitacionArea) != 30):
+        continue
+
     for i in habitacionArea:
         textoCompleto = i.text
         habitaciones = re.search(r"\d+ habitaciones",textoCompleto)
         areaTot = re.search(r"\d+ m²",textoCompleto)
         areaConstr = re.search(r"\d+ /",textoCompleto)
 
-        try:
-            habitaciones = habitaciones.group()
-            habitaciones = habitaciones.replace(' habitaciones','')
-            cantidad_habitaciones.append(int(habitaciones))
-        except AttributeError:
-            cantidad_habitaciones.append(4)
-
-        try:
-            areaTot = areaTot.group()
-            areaTot = areaTot.replace('m²','')
-            area_total.append(float(areaTot))
-        except AttributeError:
+        if (areaTot == None or areaTot == ''):
             area_total.append(0)
+        else:
+            try:
+                areaTot = areaTot.group()
+                areaTot = areaTot.replace('m²', '')
+                area_total.append(float(areaTot))
+            except AttributeError:
+                area_total.append(0)
 
-        try:
-            areaConstr = areaConstr.group()
-            areaConstr = areaConstr.replace(' /','')
-            area_construida.append(float(areaConstr))
-        except AttributeError:
+
+        if (habitaciones == None or habitaciones == ''):
+            cantidad_habitaciones.append(4)
+        else:
+            try:
+                habitaciones = habitaciones.group()
+                habitaciones = habitaciones.replace(' habitaciones', '')
+                cantidad_habitaciones.append(int(habitaciones))
+            except AttributeError:
+                cantidad_habitaciones.append(4)
+
+
+        if (areaConstr == None or areaConstr == ''):
             area_construida.append(0)
+        else:
+            try:
+                areaConstr = areaConstr.group()
+                areaConstr = areaConstr.replace(' /', '')
+                area_construida.append(float(areaConstr))
+            except AttributeError:
+                area_construida.append(0)
 
     linksIni = []
     linksFin = []
@@ -243,25 +283,28 @@ for i in range (1,400):
             baños = re.search(r"Baños: \d+",descripcion)
             parqueaderos = re.search(r"Parqueaderos|Parqueadero", descripcion)
 
-            try:
-                baños = baños.group().replace("Baños: ", "")
-                cantidad_banos.append(int(baños))
-            except AttributeError:
+            if (baños == 'None' or baños == ''):
                 cantidad_banos.append(2)
+            else:
+                try:
+                    baños = baños.group().replace("Baños: ", "")
+                    cantidad_banos.append(int(baños))
+                except AttributeError:
+                    cantidad_banos.append(2)
 
-            try:
-                parqueaderos = parqueaderos.group()
-                cantidad_parqueaderos.append(1)
-            except AttributeError:
+            if (parqueaderos == 'None' or parqueaderos == ''):
                 cantidad_parqueaderos.append(0)
+            else:
+                try:
+                    parqueaderos = parqueaderos.group()
+                    cantidad_parqueaderos.append(1)
+                except AttributeError:
+                    cantidad_parqueaderos.append(0)
+
             break
 
     # Se reinician los links internos, ya que cambian para cada página
     url_mom.clear()
 
-    if (len(name) == 0):
-        print('ha llegado al final')
-        break
-    else:
-        print('Pagina Externa: ' + url)
+
 
