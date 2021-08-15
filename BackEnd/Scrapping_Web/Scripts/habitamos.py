@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-def extraccion_zona(barrio):
+def extraccion_barrio(barrio):
     Medellín_Nororiental = ["Medellín Nororiental", "El Chagualo", "Estación Villa", "Aranjuez", "Berlín", "La Piñuela",
                             "San Isidro", "Palermo", "Bermejal",
                             "San Pedro", "Sevilla", "Brasilia", "Manrique Central 1", "Manrique 1 Central 2",
@@ -102,8 +102,8 @@ def extraccion_zona(barrio):
     Medellín_Rural = ["Medellín Rural", "Altavista", "Palmitas", "Santa Elena", "San Cristóbal", "San Antonio de Prado",
                       "San Cristóbal"]
 
-    for listaActZona in [Medellín_Nororiental, Medellín_Noroccidental, Medellín_Centroriental, Medellín_Centroccidental, Medellín_Suroriental, Medellín_Suroccidental, Medellín_Rural]:
-        if barrio in listaActZona:
+    for listaActbarrio in [Medellín_Nororiental, Medellín_Noroccidental, Medellín_Centroriental, Medellín_Centroccidental, Medellín_Suroriental, Medellín_Suroccidental, Medellín_Rural]:
+        if barrio in listaActbarrio:
             return True
     return False
 
@@ -117,14 +117,21 @@ tipo_inmueble = []
 area_total = []
 cantidad_banos = []
 cantidad_parqueaderos = []
-zona = [] #Barrio
+barrio = [] #Barrio
 imagen_inmueble = []
+municipio = []
+area_construida = []
+vendedor = []
+costo_administracion = []
+costo_servicios_publicos = []
+estrato = []
+inmueble_estado_uso = []
 
 nombre = []
 info = []
 info_Dir = []
 ind_malos = []
-zona2 = []
+barrio2 = []
 imagen_inmueble2 = []
 info_Dir2 = []
 url_fuente2 = []
@@ -160,29 +167,34 @@ for i in url_fuente2:
     try:
         cadena = re.search(r'Barrio: ((\w+ \w+)|(\w+))', info_Dir2[k])
         cadena = cadena.group().replace('Barrio: ', '').replace("País", '').title()
-        if extraccion_zona(cadena) == False:
+        if extraccion_barrio(cadena) == False:
             if k not in ind_malos:
                 ind_malos.append(k)
-        zona2.append(cadena)
+        barrio2.append(cadena)
     except AttributeError:
-        zona2.append('No Especifica')
+        barrio2.append('No Especifica')
         if k not in ind_malos:
             ind_malos.append(k)
     k = k + 1
 
 for i in range(0, len(url_fuente2)):
     if i not in ind_malos:
-        zona.append(zona2[i])
+        barrio.append(barrio2[i])
         imagen_inmueble.append(imagen_inmueble2[i])
         info_Dir.append(info_Dir2[i])
         url_fuente.append(url_fuente2[i])
-
-print(len(url_fuente))
 
 for i in url_fuente:
     print(i)
     page = requests.get(i)
     soup = BeautifulSoup(page.content, 'html.parser')
+    municipio.append(None)
+    area_construida.append(None)
+    vendedor.append(None)
+    costo_administracion.append(None)
+    costo_servicios_publicos.append(None)
+    estrato.append(None)
+    inmueble_estado_uso.append(None)
 
     for j in soup.find_all('div', {'class': 'table-cell'}):
         nombre.append(j.text)
@@ -247,9 +259,9 @@ for i in range(0,len(info)):
     try:
         cadena = re.search(r'Barrio: ((\w+ \w+)|(\w+))', info_Dir[i])
         cadena = cadena.group().replace('Barrio: ', '').replace("País", '')
-        zona.append(cadena)
+        barrio.append(cadena)
     except AttributeError:
-        zona.append('**NO ESPECIFICA**')
+        barrio.append('**NO ESPECIFICA**')
 
 for i in range(0,len(url_fuente)):
     print('Url:' + url_fuente[i])
@@ -261,5 +273,5 @@ for i in range(0,len(url_fuente)):
     print('Area: ' + str(area_total[i]))
     print('Banios: '+ str(cantidad_banos[i]))
     print('parqueadero: '+ str(cantidad_parqueaderos[i]))
-    print('zona: ' + zona[i])
+    print('barrio: ' + barrio[i])
     print('Imagen: ' + imagen_inmueble[i] + "\n")
