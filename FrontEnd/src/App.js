@@ -19,7 +19,7 @@ export const browserHistory = createBrowserHistory({ basename: "/FrancaPaisa" })
 
 
 function App() {
-  const { loginWithRedirect, logout, isAuthenticated, user, isLoading } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated, user} = useAuth0();
 
   const styles = {
     styleIcons: {
