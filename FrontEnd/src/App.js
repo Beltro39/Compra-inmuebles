@@ -36,14 +36,14 @@ function App() {
 
   return (
     <div className="App">
-      <header class="">
+      <header>
         <Router history={browserHistory} basename={'/FrancaPaisa'}>
           <img src={banner} className="App-logo " alt="logo" />
           <nav className="navbar-dark navbar-expand-sm navbar App-navbar sticky-top bg-dark" id="nav">
-            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon" ></span>
+            <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon" ></span>
             </button>
-            <div class="collapse navbar-collapse " id="navbarNav">
+            <div className="collapse navbar-collapse " id="navbarNav">
 
               <Nav.Link className="App-nav-link " href="/FrancaPaisa/">
                 <AiOutlineHome style={styles.styleNavBar} /> Inmuebles
