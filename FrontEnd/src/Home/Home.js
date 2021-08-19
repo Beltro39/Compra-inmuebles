@@ -6,8 +6,10 @@ import { Pagination } from '@material-ui/lab';
 import Gridcards from './Gridcards';
 import Listcards from './Listcards';
 import Slider from '../Slider/Slider';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Home() {
+  const { isAuthenticated } = useAuth0();
   const styles = {
     styleForm: {
       border: "1px solid grey",
@@ -49,7 +51,10 @@ function Home() {
 
       <div className="row justify-content-left">
         <br></br>
-        <Slider></Slider>
+        {
+          isAuthenticated ? (<Slider></Slider>) : ('')
+        }
+
 
         <div className="row">
 
@@ -156,33 +161,25 @@ function Home() {
             <button type="submit" className="btn btn-primary btn-block mb-3 d-none d-lg-block" onClick={() => applyFilters()}>
               {buttonFilter}
             </button>
-
-
-
+            
           </div>
+          <br></br>
+        </div>
 
-          <div className="col-sm" style={styles.styleForm}>
-
-
-
-            <div class="container mt-3 ">
-              <button type="submit" className="btn btn-primary btn-block mb-3 d-none d-lg-block" onClick={() => changeView()}>
-                {buttonName}
-              </button>
-
-              <div>
-                {
-                  showListView ? showListedElements() : showMoreElements()
-                }
-              </div>
+        <div className="col-sm" style={styles.styleForm}>
 
 
 
+          <div class="container mt-3 ">
+            <button type="submit" className="btn btn-primary btn-block mb-3 d-none d-lg-block" onClick={() => changeView()}>
+              {buttonName}
+            </button>
 
+            <div>
+              {
+                showListView ? showListedElements() : showMoreElements()
+              }
             </div>
-
-
-
 
 
           </div>
