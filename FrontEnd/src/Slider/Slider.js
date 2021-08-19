@@ -8,7 +8,7 @@ function Slider() {
 
     return (
 
-        <div id="mycarousel" class="carousel slide">
+        <div id="mycarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
                     <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
