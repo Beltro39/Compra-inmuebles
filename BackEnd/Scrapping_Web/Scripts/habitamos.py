@@ -125,7 +125,7 @@ vendedor = []
 costo_administracion = []
 costo_servicios_publicos = []
 estrato = []
-inmueble_estado_uso = []
+inmueble_nuevo = []
 
 nombre = []
 info = []
@@ -173,8 +173,6 @@ for i in url_fuente2:
         barrio2.append(cadena)
     except AttributeError:
         barrio2.append('No Especifica')
-        if k not in ind_malos:
-            ind_malos.append(k)
     k = k + 1
 
 for i in range(0, len(url_fuente2)):
@@ -185,16 +183,14 @@ for i in range(0, len(url_fuente2)):
         url_fuente.append(url_fuente2[i])
 
 for i in url_fuente:
-    print(i)
     page = requests.get(i)
     soup = BeautifulSoup(page.content, 'html.parser')
-    municipio.append('No especifica')
     area_construida.append(0)
     vendedor.append('No especifica')
     costo_administracion.append(0)
     costo_servicios_publicos.append(0)
     estrato.append(0)
-    inmueble_estado_uso.append(0)
+    inmueble_nuevo.append(False)
 
     for j in soup.find_all('div', {'class': 'table-cell'}):
         nombre.append(j.text)
@@ -257,21 +253,50 @@ for i in range(0,len(info)):
         tipo_inmueble.append('**NO ESPECIFICA**')
 
     try:
-        cadena = re.search(r'Barrio: ((\w+ \w+)|(\w+))', info_Dir[i])
-        cadena = cadena.group().replace('Barrio: ', '').replace("País", '')
-        barrio.append(cadena)
+        cadena = re.search(r'Ciudad: ((\w+ \w+)|(\w+))', info_Dir[i])
+        cadena = cadena.group().replace('Ciudad: ', '').replace('Estado', '').title()
+        if cadena == 'Medellin':
+            municipio.append(cadena.replace('i','í'))
+        else:
+            municipio.append(cadena)
     except AttributeError:
-        barrio.append('**NO ESPECIFICA**')
+        municipio.append('Medellín')
 
-for i in range(0,len(url_fuente)):
-    print('Url:' + url_fuente[i])
-    print('Nombre de publicacion: ' + nombre_publicacion[i])
+print(len(url_fuente))
+print(len(nombre_publicacion))
+print(len(descripcion))
+print(len(valor_inmueble))
+print(len(cantidad_habitaciones))
+print(len(tipo_inmueble))
+print(len(area_total))
+print(len(cantidad_banos))
+print(len(cantidad_parqueaderos))
+print(len(barrio))
+print(len(imagen_inmueble))
+print(len(municipio))
+print(len(area_construida))
+print(len(vendedor))
+print(len(costo_administracion))
+print(len(costo_servicios_publicos))
+print(len(estrato))
+print(len(inmueble_nuevo))
+
+for i in range (0,len(url_fuente)):
+    print('Url: ' + url_fuente[i])
+    print('Nombre de publicacion : ' + nombre_publicacion[i])
     print('Descripcion: ' + descripcion[i])
-    print('Valor: ' + str(valor_inmueble[i]))
-    print('Habitaciones: ' + str(cantidad_habitaciones[i]))
-    print('tipo: ' + tipo_inmueble[i])
-    print('Area: ' + str(area_total[i]))
-    print('Banios: '+ str(cantidad_banos[i]))
-    print('parqueadero: '+ str(cantidad_parqueaderos[i]))
-    print('barrio: ' + barrio[i])
-    print('Imagen: ' + imagen_inmueble[i] + "\n")
+    print('Valor inmueble: ' + str(valor_inmueble[i]))
+    print('Cantiad Habitaciones: ' + str(cantidad_habitaciones[i]))
+    print('Tipo inmueble: ' + str(tipo_inmueble[i]))
+    print('Area total: ' + str(area_total[i]))
+    print('Cantidad Banos: ' + str(cantidad_banos[i]))
+    print('Cantidad Parqueaderos: ' + str(cantidad_parqueaderos[i]))
+    print('Barrio: ' + barrio[i])
+    print('Imagen: ' + imagen_inmueble[i])
+    print('Municipio: ' + municipio[i])
+    print('Area construida: ' + str(area_construida[i]))
+    print('vendedor: ' + vendedor[i])
+    print('Costo Administracion: ' + str(costo_administracion[i]))
+    print('Costo servicios: ' + str(costo_servicios_publicos[i]))
+    print('Estrato: ' + str(estrato[i]))
+    print('Inmueble: ' + str(inmueble_nuevo[i]))
