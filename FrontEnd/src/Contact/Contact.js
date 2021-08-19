@@ -1,7 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Contact.css';
+
+// CommonJS
+
+
+    
+ 
 
 function Contact() {
-
+    const Swal = require('sweetalert2');
+   
+ 
     const styles = {
         styleIframe: {
             border: '2px solid grey',
@@ -37,7 +46,7 @@ function Contact() {
                                     Dejanos un mensaje, nuestro equipo se pondra en contacto contigo
                                 </div>
                                 <br></br>
-                                <form>
+                                <div>
                                     <div className="form-group">
                                         <label>Nombre</label>
                                         <input type="text" className="form-control" />
@@ -59,9 +68,10 @@ function Contact() {
                                     </div>
 
                                     <br></br>
-                                    <button type="submit" className="btn btn-primary btn-block" style={styles.styleButton}>Enviar</button>
+                                    <button onClick={() => Swal.fire({background: '#282c34',
+  text: 'Mensaje enviado exitosamente'})} className="btn btn-primary btn-block" style={styles.styleButton}>Enviar</button>
                                     <br></br>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
