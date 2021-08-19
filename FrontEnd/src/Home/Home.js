@@ -31,8 +31,14 @@ function Home() {
     },
   };
 
+  const [buttonFilter] = useState("Aplicar filtros");
   const [buttonName, setButtonName] = useState("Cuadricula");
   const [showListView, setShowListView] = useState(true);
+
+  function applyFilters() {
+
+    console.log("Cualquier filtro :v")
+  }
 
   function changeView() {
     setShowListView(!showListView)
@@ -100,17 +106,11 @@ function Home() {
             <div className="container-fluid" style={styles.styleForm}>
               <h4 style={styles.styleTitle}>Precio</h4>
               <div className="form-floating mb-3">
-                <input type="price" class="form-control" id="floatingInput" placeholder=""></input>
-                <label for="floatingInput" style={styles.styleLabel}>
-                  Desde
-                </label>
+                <input type="price" class="form-control" id="floatingInput" placeholder="Desde: "></input>
               </div>
 
               <div className="form-floating mb-3">
-                <input type="price" class="form-control" id="floatingInput" placeholder=""></input>
-                <label for="floatingInput" style={styles.styleLabel}>
-                  Hasta
-                </label>
+                <input type="price" class="form-control" id="floatingInput" placeholder="Hasta: "></input>
               </div>
             </div>
             <br></br>
@@ -119,18 +119,12 @@ function Home() {
             <div className="container-fluid" style={styles.styleForm}>
               <h4 style={styles.styleTitle}>Tamaño en M2</h4>
               <div className="form-floating mb-3">
-                <input type="price" class="form-control" id="floatingInput" placeholder=""></input>
-                <label for="floatingInput" style={styles.styleLabel}>
-                  Desde
-                </label>
+                <input type="price" class="form-control" id="floatingInput" placeholder="Desde: "></input>
               </div>
 
               <div className="form-floating mb-3">
                 <input
-                  type="price" class="form-control" id="floatingInput" placeholder=""></input>
-                <label for="floatingInput" style={styles.styleLabel}>
-                  Hasta
-                </label>
+                  type="price" class="form-control" id="floatingInput" placeholder="Hasta: "></input>
               </div>
             </div>
             <br></br>
@@ -139,94 +133,53 @@ function Home() {
             <div className="container-fluid" style={styles.styleForm}>
               <h4 style={styles.styleTitle}>Cantidad de baños</h4>
 
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
-                  Uno
-                </label>
-              </div>
+              <select class="form-select form-select-sm mb-3" placeholder="Seleccione cantidad de baños" aria-label=".form-select-sm example" style={{ fontSize: "15px", width: "100%", borderRadius: ".25rem", height: "calc(1.5em + .75rem + 2px)" }}>
+                <option value="1" style={styles.styleLabel}>1</option>
+                <option value="2" style={styles.styleLabel}>2</option>
+                <option value="3" style={styles.styleLabel}>3</option>
+                <option value="4 o más" style={styles.styleLabel} >4 o más</option>
+              </select>
 
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" ></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
-                  Dos
-                </label>
-              </div>
-
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
-                  Tres
-                </label>
-              </div>
-
-              <div className="form-check mb-3">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" ></input>
-                <label className="form-check-label" for="flexCheckDefault"
-                  style={styles.styleLabel}
-                >
-                  Más de cuatro
-                </label>
-              </div>
             </div>
+
             <br></br>
 
             {/* Contenedor del checkbox para la cantidad de habitaciones */}
             <div className="container-fluid" style={styles.styleForm}>
               <h4 style={styles.styleTitle}>Cantidad de habitaciones</h4>
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" ></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
-                  Uno
-                </label>
-              </div>
+              <select class="form-select form-select-sm mb-3" placeholder="Seleccione cantidad de baños" aria-label=".form-select-sm example" style={{ fontSize: "15px", width: "100%", borderRadius: ".25rem", height: "calc(1.5em + .75rem + 2px)" }}>
+                <option value="1" style={styles.styleLabel}>1</option>
+                <option value="2" style={styles.styleLabel}>2</option>
+                <option value="3" style={styles.styleLabel}>3</option>
+                <option value="4 o más" style={styles.styleLabel} >4 o más</option>
+              </select>
 
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" ></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
-                  Dos
-                </label>
-              </div>
-
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" ></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
-                  Tres
-                </label>
-              </div>
-
-              <div className="form-check mb-3">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
-                  Más de cuatro
-                </label>
-              </div>
             </div>
+
             <br></br>
+
+            <button type="submit" className="btn btn-primary btn-block mb-3 d-none d-lg-block" onClick={() => applyFilters()}>
+              {buttonFilter}
+            </button>
+            
           </div>
+          <br></br>
+        </div>
 
-          <div className="col-sm" style={styles.styleForm}>
-
-
-
-            <div class="container mt-3 ">
-              <button type="submit" className="btn btn-primary btn-block mb-3 d-none d-lg-block" onClick={() => changeView()}>
-                {buttonName}
-              </button>
-
-              <div>
-                {
-                  showListView ? showListedElements() : showMoreElements()
-                }
-              </div>
+        <div className="col-sm" style={styles.styleForm}>
 
 
 
+          <div class="container mt-3 ">
+            <button type="submit" className="btn btn-primary btn-block mb-3 d-none d-lg-block" onClick={() => changeView()}>
+              {buttonName}
+            </button>
 
+            <div>
+              {
+                showListView ? showListedElements() : showMoreElements()
+              }
             </div>
-
-
-
 
 
           </div>
