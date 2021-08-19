@@ -1,7 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Contact.css';
-import { Button } from 'react-bootstrap';
-import Swal from 'sweetalert2';
 
 // CommonJS
 
