@@ -36,12 +36,12 @@ def get_data_tiempo(url):
 # luego envía estos resultados al siguiente metodo
 # https://www.espaciourbano.com/Apartamentos_Venta_Zona1.asp?idciudad=10000&Ciudad=Medell%EDn%20Zona%201%20-%20Centro
 secciones = ['https://www.espaciourbano.com/Apartamentos_Venta_Zona1.asp', 'https://www.espaciourbano.com/Apartamentos_Venta_Zona2.asp', 'https://www.espaciourbano.com/Apartamentos_Venta_Zona3.asp', 'https://www.espaciourbano.com/Apartamentos_Venta_Zona4.asp', 'https://www.espaciourbano.com/Apartamentos_venta_Sabaneta.asp', 'https://www.espaciourbano.com/Apartamentos_venta_Envigado.asp',
-             'https://www.espaciourbano.com/Apartamentos_Venta_Laestrella.asp', 'https://www.espaciourbano.com/Apartamentos_venta_itagui.asp', 'https://www.espaciourbano.com/Apartamentos_venta_Bello.asp', 'https://www.espaciourbano.com/comercio/ventas.asp', 'https://www.espaciourbano.com/Lotes_Venta.asp', 'https://www.espaciourbano.com/Fincas_venta.asp', 'https://www.espaciourbano.com/Agroindustriales_venta.asp', ]
+             'https://www.espaciourbano.com/Apartamentos_Venta_Laestrella.asp', 'https://www.espaciourbano.com/Apartamentos_venta_itagui.asp', 'https://www.espaciourbano.com/Apartamentos_venta_Bello.asp', 'https://www.espaciourbano.com/Lotes_Venta.asp', 'https://www.espaciourbano.com/Fincas_venta.asp', 'https://www.espaciourbano.com/Agroindustriales_venta.asp', ]
 
 
 def Lista_Inmuebles_Espacio_Urbano():
     server = 'https://www.espaciourbano.com/'
-    for link in secciones:
+    for link in secciones: # A partir de [9:] son municipios diferentes al area metropolitana
         # print('for:',link)
         full_link = link
         stop = 0
@@ -52,21 +52,35 @@ def Lista_Inmuebles_Espacio_Urbano():
             link_problem.setdefault(full_link, full_link)
             BS = BeautifulSoup(get_data_tiempo(full_link), "html5lib")
             Inmuebles_Espacio_Urbano(BS, server)
-            try:
-                next_link = BS.find('span', {'class': 'style100'}).find(
-                    'span', {'class': 'style63 style62 style100 style73'}).find_all('a')
-                # print(next_link)
-                # print(next_link[aux]['href'])
-                if aux == len(next_link):
-                    continue
-                else:
-                    aux += 1
-                full_link = server+next_link[aux]['href']
-            except Exception as ex:
-                stop = 1
+            if secciones.index(link)>8:
+                # print('Link if',link)
+                try:
+                    next_link = BS.find_all(
+                        'span', {'class': 'style63 style62 style100 style73'})[1].find_all('a')[1]['href']
+                    # print(next_link)
+                    if (server+next_link)==full_link:
+                        stop = 1
+                        continue
+                    full_link = server+next_link
+                    # print('Full link:',full_link)
+                except Exception as ex:
+                    stop = 1
+            else:
+                try:
+                    next_link = BS.find('span', {'class': 'style100'}).find(
+                        'span', {'class': 'style63 style62 style100 style73'}).find_all('a')
+                    # print(next_link)
+                    # print(next_link[aux]['href'])
+                    if aux == len(next_link):
+                        continue
+                    else:
+                        aux += 1
+                    full_link = server+next_link[aux]['href']
+                except Exception as ex:
+                    stop = 1
 
     print('Tamaño lista:',len(lista_inmuebles))
-    print(lista_inmuebles)
+    # print(lista_inmuebles)
     print('Barrios diferentes:',barrios_diferentes)
     print('Problematic links:',problematic_links)
 
@@ -99,20 +113,24 @@ def Inmuebles_Espacio_Urbano(BS, server):
         # print('Enlace a la publicación:', url_fuente)
         tipo_inmueble = center_info[2].text.split(' ')[0].upper()
         # pueden salir en venta y en arriendo.....
-        print('Tipo de inmueble:', tipo_inmueble)
+        # print('Tipo de inmueble:', tipo_inmueble)
         valor_inmueble = center_info[0].text.split('VENTA $')[1].replace(',', '')
-        print('Precio:', valor_inmueble)
+        # print('Precio:', valor_inmueble)
 
         try:
             features = inmueble.find(
                 'table', {'class': 'table table-striped'}).find_all('tr')
         except Exception as ex:
-            print('Except featuyres:', ex, 'Link:', link_inmueble)
+            print('Except features:', ex, 'Link:', link_inmueble)
             problematic_links.append([link_inmueble, ex])
             continue
         # print('Caracteristicas:', features)
 
         municipio = features[0].find_all('td')[1].text.split(' ')[0].upper()
+        # print(municipio)
+
+        if municipio != 'MEDELLIN' and municipio != 'MEDELLÍN':
+            municipio = features[0].find_all('td')[1].text.upper()
         
         try:
             upper_info = inmueble.find_all(
@@ -124,29 +142,30 @@ def Inmuebles_Espacio_Urbano(BS, server):
 
         barrio = upper_info[0].find('small').text.replace(' / ', '')
 
-        if municipio == 'MEDELLIN':
+        if municipio == 'MEDELLIN' or municipio == 'MEDELLÍN':
             municipio = 'MEDELLÍN'
-            print('Municipio:', municipio)
             aux_barrio = extraccion_zona(barrio)
+            # print(barrio.upper())
             if aux_barrio != True:
                 print(aux_barrio)
                 barrios_diferentes.setdefault(barrio,aux_barrio)
                 continue
                 
         barrio = barrio.upper()
+        print('Municipio:', municipio)
         print('Barrio:',barrio)
 
         cantidad_habitaciones = center_info[1].find(
             'span', {'class': 'fa fa-bed'}).text.split('+')[0]
         # int(features[5].find_all('td')[1].text))
-        print('Habitaciones:', int(cantidad_habitaciones))
+        # print('Habitaciones:', int(cantidad_habitaciones))
         area_total = round(float(features[2].find_all('td')[
                            1].text.split(' M2.')[0].replace(',','')), 2)
-        print('Área total:', area_total)
+        # print('Área total:', area_total)
         try:
             area_construida = round(
                 float(features[3].find_all('td')[1].text.split(' M2.')[0]), 2)
-            print('Área construida:', area_construida)
+            # print('Área construida:', area_construida)
         except Exception as ex:
             print('Except area construida:', ex, 'Link:', link_inmueble)
             problematic_links.append([link_inmueble, ex])
@@ -171,7 +190,7 @@ def Inmuebles_Espacio_Urbano(BS, server):
         aux_seller = str(seller.find('h4', {'class': 'card-title'}).text)+' '+str(
             seller.find('p', {'class': 'card-text'}).text)
         vendedor = aux_seller.upper()
-        print('Nombre Vendedor o Agencia:', vendedor)
+        # print('Nombre Vendedor o Agencia:', vendedor)
 
         cantidad_banos = int(center_info[1].find(
             'span', {'class': 'fa fa-bath'}).text.split('+')[0])
@@ -197,23 +216,50 @@ def Inmuebles_Espacio_Urbano(BS, server):
             aux_imagen_inmueble = inmueble.find(
                 'div', {'class': 'carousel-inner'}).find_all('div', {'class': 'carousel-item'})
             imagen_inmueble = nombre_fuente+aux_imagen_inmueble[0].img['src']
-            print('Imagen:', imagen_inmueble)
+            # print('Imagen:', imagen_inmueble)
         except Exception as ex:
             problematic_links.append([link_inmueble, ex])
             continue
-            
 
-        aux_inmueble = (nombre_fuente, nombre_publicacion, url_fuente, tipo_inmueble, valor_inmueble, municipio, barrio, cantidad_habitaciones, area_total, area_construida,
+        aux_inmueble = create_json(nombre_fuente, nombre_publicacion, url_fuente, tipo_inmueble, valor_inmueble, municipio, barrio, cantidad_habitaciones, area_total, area_construida,
                         descripcion, vendedor, cantidad_banos, costo_administracion, cantidad_parqueaderos, costo_servicios_publicos, estrato, inmueble_nuevo, imagen_inmueble)
         
         lista_inmuebles.append(aux_inmueble)
 
+def create_json(nombre_fuente, nombre_publicacion, url_fuente, tipo_inmueble, valor_inmueble, municipio, barrio, cantidad_habitaciones, area_total, area_construida,
+                        descripcion, vendedor, cantidad_banos, costo_administracion, cantidad_parqueaderos, costo_servicios_publicos, estrato, inmueble_nuevo, imagen_inmueble):
 
+    registro = {
+        'nombre_fuente': nombre_fuente,
+        'nombre_publicacion': nombre_publicacion,
+        'url_fuente': url_fuente,
+        'tipo_inmueble': tipo_inmueble,
+        'valor_inmueble': valor_inmueble,
+        'municipio': municipio,
+        'barrio': barrio,
+        'cantidad_habitaciones': cantidad_habitaciones,
+        'area_total': area_total,
+        'area_construida': area_construida,
+        'descripcion': descripcion,
+        'vendedor': vendedor,
+        'cantidad_banos': cantidad_banos,
+        'costo_administracion': costo_administracion,
+        'cantidad_parqueaderos': cantidad_parqueaderos,
+        'costo_servicios_publicos': costo_servicios_publicos,
+        'estrato': estrato,
+        'inmueble_nuevo': inmueble_nuevo, 
+        'imagen_inmueble': imagen_inmueble,
+    }
+    return registro
+
+def write_jsons_files():
+    with open('Espacio_Urbano.json', 'w', encoding='utf-8') as file:
+        json.dump(lista_inmuebles, file, indent=4)
+        file.close()
 
 # 'none'
 # 0
 # 'false' true nuevo
-
 
 def extraccion_zona(barrio):
     barriosSinZona = []
@@ -283,3 +329,4 @@ def extraccion_zona(barrio):
 
 if __name__ == '__main__':
     Lista_Inmuebles_Espacio_Urbano()
+    write_jsons_files()
