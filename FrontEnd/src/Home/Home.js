@@ -6,6 +6,7 @@ import { Pagination } from '@material-ui/lab';
 import Gridcards from './Gridcards';
 import Listcards from './Listcards';
 import Slider from '../Slider/Slider';
+import { GiChainsaw, GiMachete } from "react-icons/gi";
 import { useAuth0 } from '@auth0/auth0-react';
 
 function Home() {
@@ -39,7 +40,7 @@ function Home() {
   };
 
   const [buttonFilter] = useState("Aplicar filtros");
-  const [buttonName, setButtonName] = useState("Cuadricula");
+  const [buttonName, setButtonName] = useState(<span><GiChainsaw/> Cambiar a cuadricula</span>);
   const [showListView, setShowListView] = useState(true);
 
   function applyFilters() {
@@ -49,7 +50,7 @@ function Home() {
 
   function changeView() {
     setShowListView(!showListView)
-    setButtonName(showListView ? "Listado" : "Cuadricula")
+    setButtonName(showListView ? <span><GiMachete/> Cambiar a listado</span> : <span><GiChainsaw/> Cambiar a cuadricula</span>)
     console.log("Cualquier texto :v", buttonName)
   }
   return (
@@ -57,7 +58,7 @@ function Home() {
     <div className="container Home">
 
       <div className="row justify-content-left">
-        <br></br>
+
         {
           isAuthenticated ? (<Slider></Slider>) : ('')
         }
@@ -168,7 +169,7 @@ function Home() {
             <button type="submit" className="btn btn-primary btn-block mb-3 d-none d-lg-block" onClick={() => applyFilters()}>
               {buttonFilter}
             </button>
-            
+
           </div>
           <br></br>
         </div>
@@ -195,28 +196,8 @@ function Home() {
 
 
         <br></br>
-
-
-
-
-        {/* Contenedor del footer y de la paginación de las paginas */}
-
-
-
-
-
       </div>
-      <footer className="Home-Footer" >
-        <div className="row justify-content-center">
-          <Pagination count={10} color="primary" />
-        </div>
-      </footer>
     </div>
-
-
-
-
-
   );
 }
 
@@ -228,9 +209,13 @@ function showListedElements() {
       <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
       <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
       <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-      <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-    </div>
 
+      <div className="Home-Footer" >
+        <div className="row justify-content-center">
+          <Pagination count={10} color="primary" />
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -239,12 +224,18 @@ function showMoreElements() {
   return (
 
     <div >
-      <div className="row form-group">
+      <div className="row">
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
+        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
+      </div>
+      <div className="Home-Footer" >
+        <div className="row justify-content-center">
+          <Pagination count={10} color="primary" />
+        </div>
       </div>
     </div>
 

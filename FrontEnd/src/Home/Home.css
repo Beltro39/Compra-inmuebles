@@ -8,7 +8,9 @@
     align-items: center;
 }
 
-
+.Home {
+    margin-top: 2%;
+}
 
 .Home-header{
     width: 100%;
@@ -24,6 +26,11 @@
 .col-sm{
     display: flex;
 }
+
+.Home-Footer{
+    margin-bottom: 15px;
+}
+
 
 /* Color de los números en la paginación */
 .Home-Footer div li button {

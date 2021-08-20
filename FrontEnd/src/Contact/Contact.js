@@ -42,7 +42,7 @@ function Contact() {
                     </div>
 
                     <div className="col-md-4">
-                        <form className="g-3 needs-validation"  id="myform">
+                        <form className="g-3 needs-validation" id="myform">
                             <div className="container" style={styles.styleForm}>
                                 <div className="row justify-content-center" style={styles.styleFormHeader}>
                                     Dejanos un mensaje, nuestro equipo se pondra en contacto contigo
@@ -70,15 +70,15 @@ function Contact() {
                                     </div>
 
                                     <br></br>
-                                    <button onClick={(event) => { 
-                                        event.preventDefault();
+                                    <button onClick={(event) => {
                                         if (document.getElementById("myform").checkValidity()) {
                                             Swal.fire({
                                                 background: '#282c34',
                                                 text: 'Mensaje enviado exitosamente'
                                             })
+                                            document.getElementById("myform").reset()
+                                            event.preventDefault();
                                         }
-                                        document.getElementById("myform").reset()
                                     }} type="submit" className="btn btn-primary btn-block" style={styles.styleButton}>Enviar</button>
                                     <br></br>
                                 </div>
@@ -87,7 +87,7 @@ function Contact() {
                     </div>
                 </div>
             </header>
-        </div >
+        </div>
     );
 }
 
