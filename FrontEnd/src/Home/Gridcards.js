@@ -2,7 +2,7 @@
 const Gridcards = props => {
     return (
         <div className="col-sm-4">
-            <div className="card">
+            <div className="card" style={{marginBottom:"20px"}}>
                 <img className="card-img-top" src={props.img} alt="Card cap"/>
                 <div className="card-body bg-dark">
                     <p className="card-text text-align-left"><strong>Lugar:</strong> {props.lugar}</p>
@@ -12,9 +12,7 @@ const Gridcards = props => {
                     <a href="/" className="btn btn-primary">Más información</a>
                 </div>
             </div>
-            <br></br>
         </div>
-        
     )
   }
 
