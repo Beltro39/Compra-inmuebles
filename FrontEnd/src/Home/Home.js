@@ -11,6 +11,13 @@ import { useAuth0 } from '@auth0/auth0-react';
 function Home() {
   const { isAuthenticated } = useAuth0();
   const styles = {
+
+    styleFormFilter: {
+      border: "1px solid grey",
+      textAlign: "left",
+      marginRight: "50px"
+    },
+
     styleForm: {
       border: "1px solid grey",
       textAlign: "left",
@@ -59,43 +66,43 @@ function Home() {
         <div className="row">
 
           {/* Contenedor de los filtros */}
-          <div className="col-md-auto" style={styles.styleForm}>
+          <div className="col-md-auto" style={styles.styleFormFilter}>
             <p style={styles.styleTitle}>Filtros</p>
 
             {/* Contenedor de los checkbox para el tipo de inmueble */}
-            <div className="container-fluid" style={styles.styleForm}>
+            <div className="container" style={styles.styleForm}>
               <h4 style={styles.styleTitle}>Tipo de inmueble</h4>
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
+                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
                   Apartamento
                 </label>
               </div>
 
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
+                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
                   Apartaestudio
                 </label>
               </div>
 
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
+                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
                   Casa
                 </label>
               </div>
 
               <div className="form-check">
                 <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
+                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
                   Local
                 </label>
               </div>
 
               <div className="form-check mb-3">
                 <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" for="flexCheckDefault" style={styles.styleLabel}>
+                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
                   Oficina
                 </label>
               </div>
@@ -106,11 +113,11 @@ function Home() {
             <div className="container-fluid" style={styles.styleForm}>
               <h4 style={styles.styleTitle}>Precio</h4>
               <div className="form-floating mb-3">
-                <input type="price" class="form-control" id="floatingInput" placeholder="Desde: "></input>
+                <input type="number" className="form-control" id="floatingInput" placeholder="Desde: "></input>
               </div>
 
               <div className="form-floating mb-3">
-                <input type="price" class="form-control" id="floatingInput" placeholder="Hasta: "></input>
+                <input type="number" className="form-control" id="floatingInput" placeholder="Hasta: "></input>
               </div>
             </div>
             <br></br>
@@ -119,12 +126,12 @@ function Home() {
             <div className="container-fluid" style={styles.styleForm}>
               <h4 style={styles.styleTitle}>Tamaño en M2</h4>
               <div className="form-floating mb-3">
-                <input type="price" class="form-control" id="floatingInput" placeholder="Desde: "></input>
+                <input type="number" className="form-control" id="floatingInput" placeholder="Desde: "></input>
               </div>
 
               <div className="form-floating mb-3">
                 <input
-                  type="price" class="form-control" id="floatingInput" placeholder="Hasta: "></input>
+                  type="number" className="form-control" id="floatingInput" placeholder="Hasta: "></input>
               </div>
             </div>
             <br></br>
@@ -133,10 +140,10 @@ function Home() {
             <div className="container-fluid" style={styles.styleForm}>
               <h4 style={styles.styleTitle}>Cantidad de baños</h4>
 
-              <select class="form-select form-select-sm mb-3" placeholder="Seleccione cantidad de baños" aria-label=".form-select-sm example" style={{ fontSize: "15px", width: "100%", borderRadius: ".25rem", height: "calc(1.5em + .75rem + 2px)" }}>
-                <option value="1" style={styles.styleLabel}>1</option>
-                <option value="2" style={styles.styleLabel}>2</option>
-                <option value="3" style={styles.styleLabel}>3</option>
+              <select className="form-select form-select-sm mb-3" placeholder="Seleccione cantidad de baños" aria-label=".form-select-sm example" style={{ fontSize: "15px", width: "100%", borderRadius: ".25rem", height: "calc(1.5em + .75rem + 2px)" }}>
+                <option value="1" style={styles.styleLabel}>1 o más</option>
+                <option value="2" style={styles.styleLabel}>2 o más</option>
+                <option value="3" style={styles.styleLabel}>3 o más</option>
                 <option value="4 o más" style={styles.styleLabel} >4 o más</option>
               </select>
 
@@ -147,10 +154,10 @@ function Home() {
             {/* Contenedor del checkbox para la cantidad de habitaciones */}
             <div className="container-fluid" style={styles.styleForm}>
               <h4 style={styles.styleTitle}>Cantidad de habitaciones</h4>
-              <select class="form-select form-select-sm mb-3" placeholder="Seleccione cantidad de baños" aria-label=".form-select-sm example" style={{ fontSize: "15px", width: "100%", borderRadius: ".25rem", height: "calc(1.5em + .75rem + 2px)" }}>
-                <option value="1" style={styles.styleLabel}>1</option>
-                <option value="2" style={styles.styleLabel}>2</option>
-                <option value="3" style={styles.styleLabel}>3</option>
+              <select className="form-select form-select-sm mb-3" placeholder="Seleccione cantidad de baños" aria-label=".form-select-sm example" style={{ fontSize: "15px", width: "100%", borderRadius: ".25rem", height: "calc(1.5em + .75rem + 2px)" }}>
+                <option value="1" style={styles.styleLabel}>1 o más</option>
+                <option value="2" style={styles.styleLabel}>2 o más</option>
+                <option value="3" style={styles.styleLabel}>3 o más</option>
                 <option value="4 o más" style={styles.styleLabel} >4 o más</option>
               </select>
 
@@ -170,7 +177,7 @@ function Home() {
 
 
 
-          <div class="container mt-3 ">
+          <div className="container mt-3 ">
             <button type="submit" className="btn btn-primary btn-block mb-3 d-none d-lg-block" onClick={() => changeView()}>
               {buttonName}
             </button>
@@ -232,7 +239,7 @@ function showMoreElements() {
   return (
 
     <div >
-      <div class="row form-group">
+      <div className="row form-group">
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />

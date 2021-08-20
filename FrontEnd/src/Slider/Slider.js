@@ -8,49 +8,49 @@ function Slider() {
 
     return (
 
-        <div id="mycarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
+        <div id="mycarousel" className="carousel slide" data-ride="carousel">
+            <div className="carousel-inner" role="listbox">
+                <div className="carousel-item active">
                     <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
                 </div>
 
-                <div class="carousel-item ">
+                <div className="carousel-item ">
                     <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
                 </div>
 
-                <div class="carousel-item ">
+                <div className="carousel-item ">
                     <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
                 </div>
 
-                <div class="carousel-item ">
+                <div className="carousel-item ">
                     <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
                 </div>
 
-                <div class="carousel-item ">
+                <div className="carousel-item ">
                     <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
                 </div>
-                <div class="carousel-item ">
-                    <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-                </div>
-
-                <div class="carousel-item ">
+                <div className="carousel-item ">
                     <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
                 </div>
 
-                <div class="carousel-item ">
+                <div className="carousel-item ">
                     <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
                 </div>
 
-                <div class="carousel-item ">
+                <div className="carousel-item ">
                     <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
                 </div>
 
-                <div class="carousel-item ">
+                <div className="carousel-item ">
+                    <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
+                </div>
+
+                <div className="carousel-item ">
                     <SliderCard img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
                 </div>
             </div>
-            <ol class="carousel-indicators">
-                <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+            <ol className="carousel-indicators">
+                <li data-target="#mycarousel" data-slide-to="0" className="active"></li>
                 <li data-target="#mycarousel" data-slide-to="1"></li>
                 <li data-target="#mycarousel" data-slide-to="2"></li>
                 <li data-target="#mycarousel" data-slide-to="3"></li>
@@ -61,11 +61,11 @@ function Slider() {
                 <li data-target="#mycarousel" data-slide-to="8"></li>
                 <li data-target="#mycarousel" data-slide-to="9"></li>
             </ol>
-            <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
+            <a className="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+                <span className="carousel-control-prev-icon"></span>
             </a>
-            <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
+            <a className="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+                <span className="carousel-control-next-icon"></span>
             </a>
 
 
