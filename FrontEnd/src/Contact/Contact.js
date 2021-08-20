@@ -51,7 +51,7 @@ function Contact() {
                                 <div>
                                     <div className="form-group">
                                         <label>Nombre</label>
-                                        <input type="text" id="name" pattern="[a-zA-Z]*" title="Este campo solo permite letras" className="form-control" required />
+                                        <input type="text" pattern="[a-zA-Z]*" title="Este campo solo permite letras" className="form-control" required />
                                     </div>
 
                                     <div className="form-group">

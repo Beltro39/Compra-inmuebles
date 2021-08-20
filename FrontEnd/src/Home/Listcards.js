@@ -4,23 +4,23 @@
 
 const Listcards = props => {
     return (
-        <div class="card form-group">
-            <div class="row no-gutters">
+        <div className="card form-group">
+            <div className="row no-gutters">
                 <div className="col-sm">
-                    <img class="card-img-top" src={props.img} alt="Card cap" />
+                    <img className="card-img-top" src={props.img} alt="Card cap" />
                 </div>
 
-                <div class="col-sm">
-                    <div class="card-body bg-dark">
-                        <p class="card-text text-align-left"><strong>Lugar:</strong> {props.lugar}</p>
-                        <p class="card-text text-align-left"><strong>Tipo:</strong> {props.tipo}</p>
-                        <p class="card-text text-align-left"><strong>Precio:</strong> {props.precio}</p>
-                        <p class="card-text text-align-left"><strong>Fuente:</strong> {props.fuente}</p>
+                <div className="col-sm">
+                    <div className="card-body bg-dark">
+                        <p className="card-text text-align-left"><strong>Lugar:</strong> {props.lugar}</p>
+                        <p className="card-text text-align-left"><strong>Tipo:</strong> {props.tipo}</p>
+                        <p className="card-text text-align-left"><strong>Precio:</strong> {props.precio}</p>
+                        <p className="card-text text-align-left"><strong>Fuente:</strong> {props.fuente}</p>
                     </div>
                 </div>
 
-                <div class="col-sm center bg-dark">
-                    <a href="/" class="btn btn-primary button">Más información</a>
+                <div className="col-sm center bg-dark">
+                    <a href="/" className="btn btn-primary button">Más información</a>
                 </div>
             </div>
         </div>
