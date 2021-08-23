@@ -60,7 +60,7 @@ function Contact() {
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Telefono:</label>
+                                        <label>Teléfono:</label>
                                         <input type="text" pattern="[0-9]*" title="Este campo solo permite numeros" className="form-control" required />
                                     </div>
 
