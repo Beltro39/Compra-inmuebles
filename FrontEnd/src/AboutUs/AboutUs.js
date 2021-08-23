@@ -25,7 +25,7 @@ function AboutUs() {
                 <br></br>
                     <div className="row">
                         <div className="col-sm-5" style={styles.styleForm}>
-                            <p>¿Quienes Somos?</p>
+                            <p>¿Quiénes Somos?</p>
                             <br></br>
                             <p className="AboutUs" >FRANCA PAISA es un Portal Web
                             en Colombia dedicado a la búsqueda,

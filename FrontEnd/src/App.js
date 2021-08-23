@@ -84,10 +84,10 @@ function App() {
             <h5><GoLocation style={styles.styleIcons} /> Calle 51 #52-09</h5>
           </div>
           <div className="col-md-auto" style={styles.styleContactInfo}>
-            <h5><BiPhoneCall style={styles.styleIcons} /> +57 301123456</h5>
+            <h5><BiPhoneCall style={styles.styleIcons} /> +57 3192517886</h5>
           </div>
           <div className="col-md-auto" style={styles.styleContactInfo}>
-            <h5><AiOutlineQuestionCircle style={styles.styleIcons} /> ¿Dudas quejas o reclamos? <a href="/FrancaPaisa/contact">Contactenos</a></h5>
+            <h5><AiOutlineQuestionCircle style={styles.styleIcons} /> ¿Dudas, quejas o reclamos? <a href="/FrancaPaisa/contact">Contactenos</a></h5>
           </div>
         </div>
       </footer>

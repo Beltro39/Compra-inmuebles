@@ -10,14 +10,9 @@
   width: 100%;
 }
 
-
-
-
 .App-nav-link{
   color: aliceblue;
 }
-
-
 
 .App-footer {
   background-color: #282c34;
@@ -39,5 +34,7 @@
 @media (min-width: 576px) {
  #navbarNav{
    justify-content: space-between;
+   margin-left: 5%;
+   margin-right: 5%;
  }
 }
