@@ -28,7 +28,7 @@ SECRET_KEY = 'ybot8j&7!0+!*smxizb9*7g3%uwuox0wcte%gph=^w^_6op*or'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost',
+    'localhost', '201.184.129.122',
 ]
 
 CACHES = {
@@ -240,7 +240,7 @@ STATIC_URL = '/static-francapaisa-backend/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'Archivos_Base/backend_static')
 
-#Testing database configuration
+# Testing database configuration
 
 TEST_RUNNER = 'Archivos_Base.tests.NoDBInitializationTestRunner.NoDBInitializationTestRunner'
 

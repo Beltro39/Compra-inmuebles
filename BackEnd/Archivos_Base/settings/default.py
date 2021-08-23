@@ -28,8 +28,7 @@ SECRET_KEY = 'ybot8j&7!0+!*smxizb9*7g3%uwuox0wcte%gph=^w^_6op*or'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-                    '192.168.1.10',
-                    'localhost',
+    'localhost', '201.184.129.122',
                 ]
 
 CACHES = {
