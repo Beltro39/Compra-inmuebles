@@ -243,34 +243,51 @@ function ListItems() {
   }
 }
 
-function Infocards () {
-  const url = 'https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/'
-  const [todos, setTodos] = useState()
+function Infocards ( parametro ) {
+  const [infoInmueble, setInfoInmueble] = useState([])
   const [isLoaded, setIsLoaded] = useState(false);
-  const fetchApi = async () => {
-    const response = await fetch(url)
-    //console.log(response.status)
-    const responseJSON = await response.json()
-    setTodos(responseJSON)
-    console.log(responseJSON)
+  async function apiRest() {
+    const apiConsumo = await
+      fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/')
+        .then(response => response.json())
+        .then(data => {
+          setInfoInmueble(data)
+          setIsLoaded(true)
+        })
+    return apiConsumo
   }
+
   useEffect(() => {
-    fetchApi()
+    apiRest()
   }, [])
+  
+  
   if (isLoaded) {
-    return(
-      <ul>
-        {todos.map( (todo, index) => {
-          return <li key={index}> {todo.inmueble_nuevo ? 'si' : 'no'}</li>
-        })}
-      </ul>
-  )}
-  else {
-    <div className="col">
-      Loading...
-    </div>
+    console.log(infoInmueble)
+    return (infoInmueble.map((val, index) => {
+      return (
+        <div key={index}>
+          {
+            parametro ? 
+            <Listcards img={val.imagen_inmueble} lugar={val.barrio_data.nombre} tipo={val.tipo_inmueble_data.nombre} precio={val.valor_inmueble} fuente={val.nombre_fuente} />
+             : 
+            <div className="row"> 
+              <Gridcards img={val.imagen_inmueble} lugar={val.barrio_data.nombre} tipo={val.tipo_inmueble_data.nombre} precio={val.valor_inmueble} fuente={val.nombre_fuente} />
+              </div>
+          }
+        </div>
+      );
+    })
+    );
+  } else {
+    
+      <text>Loading...</text>
+    
   }
+
+
 }
+
 
 
 
@@ -279,9 +296,9 @@ function Infocards () {
 function showListedElements() {
   return (
     <div >
-      <div>
-        {Infocards()}
-      </div>
+      
+      {Infocards(true)}
+      
       <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
       <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
       <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
@@ -301,6 +318,7 @@ function showMoreElements() {
   return (
 
     <div >
+      {Infocards(false)}
       <div className="row">
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
         <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
