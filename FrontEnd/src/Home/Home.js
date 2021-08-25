@@ -1,7 +1,7 @@
 import houses from '../assets/casa.jpg';
 import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pagination } from '@material-ui/lab';
 import Gridcards from './Gridcards';
 import Listcards from './Listcards';
@@ -11,6 +11,9 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 function Home() {
   const { isAuthenticated } = useAuth0();
+  const [buttonFilter] = useState("Aplicar filtros");
+  const [buttonName, setButtonName] = useState(<span><GiChainsaw /> Cambiar a cuadricula</span>);
+  const [showListView, setShowListView] = useState(true);
   const styles = {
 
     styleFormFilter: {
@@ -39,10 +42,6 @@ function Home() {
     },
   };
 
-  const [buttonFilter] = useState("Aplicar filtros");
-  const [buttonName, setButtonName] = useState(<span><GiChainsaw/> Cambiar a cuadricula</span>);
-  const [showListView, setShowListView] = useState(true);
-
   function applyFilters() {
 
     console.log("Cualquier filtro :v")
@@ -50,7 +49,7 @@ function Home() {
 
   function changeView() {
     setShowListView(!showListView)
-    setButtonName(showListView ? <span><GiMachete/> Cambiar a listado</span> : <span><GiChainsaw/> Cambiar a cuadricula</span>)
+    setButtonName(showListView ? <span><GiMachete /> Cambiar a listado</span> : <span><GiChainsaw /> Cambiar a cuadricula</span>)
     console.log("Cualquier texto :v", buttonName)
   }
   return (
@@ -73,39 +72,8 @@ function Home() {
             {/* Contenedor de los checkbox para el tipo de inmueble */}
             <div className="container" style={styles.styleForm}>
               <h4 style={styles.styleTitle}>Tipo de inmueble</h4>
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
-                  Apartamento
-                </label>
-              </div>
-
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
-                  Apartaestudio
-                </label>
-              </div>
-
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
-                  Casa
-                </label>
-              </div>
-
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
-                  Local
-                </label>
-              </div>
-
-              <div className="form-check mb-3">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
-                  Oficina
-                </label>
+              <div>
+                {ListItems()}
               </div>
             </div>
             <br></br>
@@ -199,6 +167,82 @@ function Home() {
       </div>
     </div>
   );
+}
+function ListItems() {
+  const styles = {
+
+    styleFormFilter: {
+      border: "1px solid grey",
+      textAlign: "left",
+      marginRight: "50px"
+    },
+
+    styleForm: {
+      border: "1px solid grey",
+      textAlign: "left",
+    },
+
+    styleLabel: {
+      fontSize: "15px",
+      textAlign: "left",
+    },
+
+    styleFormHeader: {
+      backgroundColor: "blue",
+    },
+
+    styleTitle: {
+      textAlign: "center",
+      fontWeight: "bold",
+    },
+    listStyle:{
+      listStyleType: "none"
+    }
+  };
+  const [tiposInmuble, setTiposInmueble] = useState([])
+  const [isLoaded, setIsLoaded] = useState(false);
+  async function apiRest() {
+    const apiConsumo = await
+      fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/tipo-inmueble/')
+        .then(response => response.json())
+        .then(data => {
+          setTiposInmueble(data)
+          setIsLoaded(true)
+        })
+    return apiConsumo
+  }
+
+  useEffect(() => {
+    apiRest()
+  }, [])
+  if (isLoaded) {
+    console.log(tiposInmuble)
+    return (
+
+      <ul>
+        {
+          tiposInmuble.map((val, index) => {
+            return (
+              <li style={styles.listStyle} key={index}>
+                { <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
+                {val.nombre}
+                </label>
+              </div>}
+              </li>
+            );
+          })
+
+        }
+      </ul>
+    );
+  } else {
+    <div className="col">
+      Loading...
+    </div>
+  }
+
 }
 
 //Función para mostrar los inmuebles en forma de listado
