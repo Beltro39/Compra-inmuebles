@@ -233,7 +233,6 @@ function ListItems() {
               </li>
             );
           })
-
         }
       </ul>
     );
@@ -242,13 +241,47 @@ function ListItems() {
       Loading...
     </div>
   }
-
 }
+
+function Infocards () {
+  const url = 'https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/'
+  const [todos, setTodos] = useState()
+  const [isLoaded, setIsLoaded] = useState(false);
+  const fetchApi = async () => {
+    const response = await fetch(url)
+    //console.log(response.status)
+    const responseJSON = await response.json()
+    setTodos(responseJSON)
+    console.log(responseJSON)
+  }
+  useEffect(() => {
+    fetchApi()
+  }, [])
+  if (isLoaded) {
+    return(
+      <ul>
+        {todos.map( (todo, index) => {
+          return <li key={index}> {todo.inmueble_nuevo ? 'si' : 'no'}</li>
+        })}
+      </ul>
+  )}
+  else {
+    <div className="col">
+      Loading...
+    </div>
+  }
+}
+
+
+
 
 //Función para mostrar los inmuebles en forma de listado
 function showListedElements() {
   return (
     <div >
+      <div>
+        {Infocards()}
+      </div>
       <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
       <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
       <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
