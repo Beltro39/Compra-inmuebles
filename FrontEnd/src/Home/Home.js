@@ -261,32 +261,38 @@ function Infocards ( parametro ) {
     apiRest()
   }, [])
   
-  
-  if (isLoaded) {
+  if(isLoaded) {
     console.log(infoInmueble)
-    return (infoInmueble.map((val, index) => {
-      return (
-        <div key={index}>
-          {
-            parametro ? 
-            <Listcards img={val.imagen_inmueble} lugar={val.barrio_data.nombre} tipo={val.tipo_inmueble_data.nombre} precio={val.valor_inmueble} fuente={val.nombre_fuente} />
-             : 
-            <div className="row"> 
-              <Gridcards img={val.imagen_inmueble} lugar={val.barrio_data.nombre} tipo={val.tipo_inmueble_data.nombre} precio={val.valor_inmueble} fuente={val.nombre_fuente} />
-              </div>
-          }
+    for (let i = 0; i < infoInmueble.length; i++) {
+      if (parametro) {
+        return (
+          
+        <div>
+          <Listcards img={infoInmueble[i].imagen_inmueble} lugar={infoInmueble[i].barrio_data.nombre} tipo={infoInmueble[i].tipo_inmueble_data.nombre} precio={infoInmueble[i].valor_inmueble} fuente={infoInmueble[i].nombre_fuente} />
+          <Listcards img={infoInmueble[i+1].imagen_inmueble} lugar={infoInmueble[i+1].barrio_data.nombre} tipo={infoInmueble[i+1].tipo_inmueble_data.nombre} precio={infoInmueble[i+1].valor_inmueble} fuente={infoInmueble[i+1].nombre_fuente} />
+          <Listcards img={infoInmueble[i+2].imagen_inmueble} lugar={infoInmueble[i+2].barrio_data.nombre} tipo={infoInmueble[i+2].tipo_inmueble_data.nombre} precio={infoInmueble[i+2].valor_inmueble} fuente={infoInmueble[i+2].nombre_fuente} />
+          <Listcards img={infoInmueble[i+3].imagen_inmueble} lugar={infoInmueble[i+3].barrio_data.nombre} tipo={infoInmueble[i+3].tipo_inmueble_data.nombre} precio={infoInmueble[i+3].valor_inmueble} fuente={infoInmueble[i+3].nombre_fuente} />
         </div>
-      );
-    })
-    );
-  } else {
-    
-      <text>Loading...</text>
-    
+        
+        )}
+      else {
+        return(
+        <div className="row"> 
+          <Gridcards img={infoInmueble[i].imagen_inmueble} lugar={infoInmueble[i].barrio_data.nombre} tipo={infoInmueble[i].tipo_inmueble_data.nombre} precio={infoInmueble[i].valor_inmueble} fuente={infoInmueble[i].nombre_fuente} />
+          <Gridcards img={infoInmueble[i+1].imagen_inmueble} lugar={infoInmueble[i+1].barrio_data.nombre} tipo={infoInmueble[i+1].tipo_inmueble_data.nombre} precio={infoInmueble[i+1].valor_inmueble} fuente={infoInmueble[i+1].nombre_fuente} />
+          <Gridcards img={infoInmueble[i+2].imagen_inmueble} lugar={infoInmueble[i+2].barrio_data.nombre} tipo={infoInmueble[i+2].tipo_inmueble_data.nombre} precio={infoInmueble[i+2].valor_inmueble} fuente={infoInmueble[i+2].nombre_fuente} />
+          <Gridcards img={infoInmueble[i+3].imagen_inmueble} lugar={infoInmueble[i+3].barrio_data.nombre} tipo={infoInmueble[i+3].tipo_inmueble_data.nombre} precio={infoInmueble[i+3].valor_inmueble} fuente={infoInmueble[i+3].nombre_fuente} />
+          <Gridcards img={infoInmueble[i+4].imagen_inmueble} lugar={infoInmueble[i+4].barrio_data.nombre} tipo={infoInmueble[i+4].tipo_inmueble_data.nombre} precio={infoInmueble[i+4].valor_inmueble} fuente={infoInmueble[i+4].nombre_fuente} />
+          <Gridcards img={infoInmueble[i+5].imagen_inmueble} lugar={infoInmueble[i+5].barrio_data.nombre} tipo={infoInmueble[i+5].tipo_inmueble_data.nombre} precio={infoInmueble[i+5].valor_inmueble} fuente={infoInmueble[i+5].nombre_fuente} />
+        </div>
+        )
+      }
+      
+    }
   }
-
-
 }
+  
+
 
 
 
@@ -298,11 +304,6 @@ function showListedElements() {
     <div >
       
       {Infocards(true)}
-      
-      <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-      <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-      <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-      <Listcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
 
       <div className="Home-Footer" >
         <div className="row justify-content-center">
@@ -319,14 +320,7 @@ function showMoreElements() {
 
     <div >
       {Infocards(false)}
-      <div className="row">
-        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-        <Gridcards img={houses} lugar="Loma de los bernal" tipo="casa" precio="350'000.000" fuente="Fincaraiz.com" />
-      </div>
+      
       <div className="Home-Footer" >
         <div className="row justify-content-center">
           <Pagination count={10} color="primary" />
