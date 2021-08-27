@@ -243,25 +243,20 @@ function ListItems() {
 
 
   if (isLoaded) {
-    return (
-
-      <ul>
-        {
-          tiposInmuble.map((val, index) => {
-            return (
-              <li style={styles.listStyle} key={index}>
-                {<div className="form-check">
-                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                  <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
-                    {val.nombre}
-                  </label>
-                </div>}
-              </li>
-            );
-          })
-        }
-      </ul>
-    );
+    let i = 0;
+      return (
+        <select className="form-select form-select-sm mb-3" placeholder="Seleccione cantidad de baños" aria-label=".form-select-sm example" style={{ fontSize: "15px", width: "100%", borderRadius: ".25rem", height: "calc(1.5em + .75rem + 2px)" }}>
+          <option value= "1" style={styles.styleLabel}>{tiposInmuble[i].nombre}</option>
+          <option value= "2" style={styles.styleLabel}>{tiposInmuble[i+1].nombre}</option>
+          <option value= "3" style={styles.styleLabel}>{tiposInmuble[i+2].nombre}</option>
+          <option value= "4" style={styles.styleLabel} >{tiposInmuble[i+3].nombre}</option>
+          <option value= "5" style={styles.styleLabel} >{tiposInmuble[i+4].nombre}</option>
+          <option value= "6" style={styles.styleLabel} >{tiposInmuble[i+5].nombre}</option>
+          <option value= "7" style={styles.styleLabel} >{tiposInmuble[i+6].nombre}</option>
+          <option value= "8" style={styles.styleLabel} >{tiposInmuble[i+7].nombre}</option>
+        </select>
+        ); 
+    
   } else {
     <div className="col">
       Loading...
@@ -331,7 +326,7 @@ function Infocards(parametro, infoInmueble, isLoaded) {
       <div className="centrarSpinner">
 
       <Loader
-        type="TailSpin"
+        type="Watch"
         color="#00BFFF"
         height={200}
         width={200}
