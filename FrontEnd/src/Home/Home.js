@@ -326,7 +326,7 @@ function Infocards(parametro, infoInmueble, isLoaded) {
       <div className="centrarSpinner">
 
       <Loader
-        type="TailSpin"
+        type="Watch"
         color="#00BFFF"
         height={200}
         width={200}
