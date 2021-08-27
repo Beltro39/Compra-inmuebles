@@ -1,6 +1,7 @@
-import houses from '../assets/casa.jpg';
 import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 import React, { useEffect, useState } from 'react';
 import { Pagination } from '@material-ui/lab';
 import Gridcards from './Gridcards';
@@ -9,11 +10,33 @@ import Slider from '../Slider/Slider';
 import { GiChainsaw, GiMachete } from "react-icons/gi";
 import { useAuth0 } from '@auth0/auth0-react';
 
+
+
 function Home() {
   const { isAuthenticated } = useAuth0();
   const [buttonFilter] = useState("Aplicar filtros");
   const [buttonName, setButtonName] = useState(<span><GiChainsaw /> Cambiar a cuadricula</span>);
   const [showListView, setShowListView] = useState(true);
+
+  const [infoInmueble, setInfoInmueble] = useState([])
+
+  const [isLoad, setIsLoad] = useState(false);
+  async function apiRest() {
+    const apiConsumo = await
+      fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/')
+        .then(response => response.json())
+        .then(data => {
+          setInfoInmueble(data)
+          setIsLoad(true)
+        })
+    return apiConsumo
+  }
+
+  useEffect(() => {
+    apiRest()
+  }, [])
+
+
   const styles = {
 
     styleFormFilter: {
@@ -48,9 +71,11 @@ function Home() {
   }
 
   function changeView() {
+
+
     setShowListView(!showListView)
     setButtonName(showListView ? <span><GiMachete /> Cambiar a listado</span> : <span><GiChainsaw /> Cambiar a cuadricula</span>)
-    console.log("Cualquier texto :v", buttonName)
+
   }
   return (
 
@@ -153,7 +178,7 @@ function Home() {
 
             <div>
               {
-                showListView ? showListedElements() : showMoreElements()
+                showListView ? showListedElements(infoInmueble, isLoad) : showMoreElements(infoInmueble, isLoad)
               }
             </div>
 
@@ -195,7 +220,7 @@ function ListItems() {
       textAlign: "center",
       fontWeight: "bold",
     },
-    listStyle:{
+    listStyle: {
       listStyleType: "none"
     }
   };
@@ -215,8 +240,9 @@ function ListItems() {
   useEffect(() => {
     apiRest()
   }, [])
+
+
   if (isLoaded) {
-    console.log(tiposInmuble)
     return (
 
       <ul>
@@ -224,12 +250,12 @@ function ListItems() {
           tiposInmuble.map((val, index) => {
             return (
               <li style={styles.listStyle} key={index}>
-                { <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
-                <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
-                {val.nombre}
-                </label>
-              </div>}
+                {<div className="form-check">
+                  <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"></input>
+                  <label className="form-check-label" htmlFor="flexCheckDefault" style={styles.styleLabel}>
+                    {val.nombre}
+                  </label>
+                </div>}
               </li>
             );
           })
@@ -243,55 +269,81 @@ function ListItems() {
   }
 }
 
-function Infocards ( parametro ) {
-  const [infoInmueble, setInfoInmueble] = useState([])
-  const [isLoaded, setIsLoaded] = useState(false);
-  async function apiRest() {
-    const apiConsumo = await
-      fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/')
-        .then(response => response.json())
-        .then(data => {
-          setInfoInmueble(data)
-          setIsLoaded(true)
-        })
-    return apiConsumo
-  }
+function Infocards(parametro, infoInmueble, isLoaded) {
 
-  useEffect(() => {
-    apiRest()
-  }, [])
-  
-  if(isLoaded) {
-    console.log(infoInmueble)
-    for (let i = 0; i < infoInmueble.length; i++) {
-      if (parametro) {
-        return (
-          
+  const [currentPage, setPage] = useState(1);
+  const [offSet, setOffset] = useState(4);
+  const handlePagination = (event, value) => {
+    setPage(value);
+    setOffset(4 * (currentPage - 1));
+  }
+  const handlePagination2 = (event, value) => {
+    setPage(value);
+    setOffset(6 * (currentPage - 1));
+  }
+  if (isLoaded) {
+
+
+
+
+
+    if (parametro) {
+      return (
+
         <div>
-          <Listcards img={infoInmueble[i].imagen_inmueble} lugar={infoInmueble[i].barrio_data.nombre} tipo={infoInmueble[i].tipo_inmueble_data.nombre} precio={infoInmueble[i].valor_inmueble} fuente={infoInmueble[i].nombre_fuente} />
-          <Listcards img={infoInmueble[i+1].imagen_inmueble} lugar={infoInmueble[i+1].barrio_data.nombre} tipo={infoInmueble[i+1].tipo_inmueble_data.nombre} precio={infoInmueble[i+1].valor_inmueble} fuente={infoInmueble[i+1].nombre_fuente} />
-          <Listcards img={infoInmueble[i+2].imagen_inmueble} lugar={infoInmueble[i+2].barrio_data.nombre} tipo={infoInmueble[i+2].tipo_inmueble_data.nombre} precio={infoInmueble[i+2].valor_inmueble} fuente={infoInmueble[i+2].nombre_fuente} />
-          <Listcards img={infoInmueble[i+3].imagen_inmueble} lugar={infoInmueble[i+3].barrio_data.nombre} tipo={infoInmueble[i+3].tipo_inmueble_data.nombre} precio={infoInmueble[i+3].valor_inmueble} fuente={infoInmueble[i+3].nombre_fuente} />
+          <Listcards img={infoInmueble[offSet].imagen_inmueble} lugar={infoInmueble[offSet].barrio_data.nombre} tipo={infoInmueble[offSet].tipo_inmueble_data.nombre} precio={infoInmueble[offSet].valor_inmueble} fuente={infoInmueble[offSet].nombre_fuente} />
+          <Listcards img={infoInmueble[1 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 1].barrio_data.nombre} tipo={infoInmueble[offSet + 1].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 1].valor_inmueble} fuente={infoInmueble[offSet + 1].nombre_fuente} />
+          <Listcards img={infoInmueble[2 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 2].barrio_data.nombre} tipo={infoInmueble[offSet + 2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 2].valor_inmueble} fuente={infoInmueble[offSet + 2].nombre_fuente} />
+          <Listcards img={infoInmueble[3 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 3].barrio_data.nombre} tipo={infoInmueble[offSet + 3].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 3].valor_inmueble} fuente={infoInmueble[offSet + 3].nombre_fuente} />
+
+          <div className="Home-Footer" >
+            <div className="row justify-content-center">
+              <Pagination count={10} color="primary" page={currentPage} onChange={handlePagination} />
+            </div>
+          </div>
         </div>
-        
-        )}
-      else {
-        return(
-        <div className="row"> 
-          <Gridcards img={infoInmueble[i].imagen_inmueble} lugar={infoInmueble[i].barrio_data.nombre} tipo={infoInmueble[i].tipo_inmueble_data.nombre} precio={infoInmueble[i].valor_inmueble} fuente={infoInmueble[i].nombre_fuente} />
-          <Gridcards img={infoInmueble[i+1].imagen_inmueble} lugar={infoInmueble[i+1].barrio_data.nombre} tipo={infoInmueble[i+1].tipo_inmueble_data.nombre} precio={infoInmueble[i+1].valor_inmueble} fuente={infoInmueble[i+1].nombre_fuente} />
-          <Gridcards img={infoInmueble[i+2].imagen_inmueble} lugar={infoInmueble[i+2].barrio_data.nombre} tipo={infoInmueble[i+2].tipo_inmueble_data.nombre} precio={infoInmueble[i+2].valor_inmueble} fuente={infoInmueble[i+2].nombre_fuente} />
-          <Gridcards img={infoInmueble[i+3].imagen_inmueble} lugar={infoInmueble[i+3].barrio_data.nombre} tipo={infoInmueble[i+3].tipo_inmueble_data.nombre} precio={infoInmueble[i+3].valor_inmueble} fuente={infoInmueble[i+3].nombre_fuente} />
-          <Gridcards img={infoInmueble[i+4].imagen_inmueble} lugar={infoInmueble[i+4].barrio_data.nombre} tipo={infoInmueble[i+4].tipo_inmueble_data.nombre} precio={infoInmueble[i+4].valor_inmueble} fuente={infoInmueble[i+4].nombre_fuente} />
-          <Gridcards img={infoInmueble[i+5].imagen_inmueble} lugar={infoInmueble[i+5].barrio_data.nombre} tipo={infoInmueble[i+5].tipo_inmueble_data.nombre} precio={infoInmueble[i+5].valor_inmueble} fuente={infoInmueble[i+5].nombre_fuente} />
-        </div>
-        )
-      }
-      
+
+
+      )
     }
+    else {
+      return (
+        <div className="row">
+          <Gridcards img={infoInmueble[offSet].imagen_inmueble} lugar={infoInmueble[offSet].barrio_data.nombre} tipo={infoInmueble[offSet].tipo_inmueble_data.nombre} precio={infoInmueble[offSet].valor_inmueble} fuente={infoInmueble[offSet].nombre_fuente} />
+          <Gridcards img={infoInmueble[1 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 1].barrio_data.nombre} tipo={infoInmueble[offSet + 1].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 1].valor_inmueble} fuente={infoInmueble[offSet + 1].nombre_fuente} />
+          <Gridcards img={infoInmueble[2 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 2].barrio_data.nombre} tipo={infoInmueble[offSet + 2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 2].valor_inmueble} fuente={infoInmueble[offSet + 2].nombre_fuente} />
+          <Gridcards img={infoInmueble[3 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 3].barrio_data.nombre} tipo={infoInmueble[offSet + 3].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 3].valor_inmueble} fuente={infoInmueble[offSet + 3].nombre_fuente} />
+          <Gridcards img={infoInmueble[4 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 4].barrio_data.nombre} tipo={infoInmueble[offSet + 4].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 4].valor_inmueble} fuente={infoInmueble[offSet + 4].nombre_fuente} />
+          <Gridcards img={infoInmueble[5 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 5].barrio_data.nombre} tipo={infoInmueble[offSet + 5].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 5].valor_inmueble} fuente={infoInmueble[offSet + 5].nombre_fuente} />
+
+          <div className="Home-Footer" >
+            <div className="row justify-content-center">
+              <Pagination count={10} color="primary" page={currentPage} onChange={handlePagination2} />
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+
+  } else {
+    return (<div >
+      <div className="centrarSpinner">
+
+      <Loader
+        type="TailSpin"
+        color="#00BFFF"
+        height={200}
+        width={200}
+      />
+
+      </div>
+      
+    </div>)
+
   }
 }
-  
+
 
 
 
@@ -299,33 +351,30 @@ function Infocards ( parametro ) {
 
 
 //Función para mostrar los inmuebles en forma de listado
-function showListedElements() {
-  return (
-    <div >
-      
-      {Infocards(true)}
+function showListedElements(infoInmueble, isLoad) {
 
-      <div className="Home-Footer" >
-        <div className="row justify-content-center">
-          <Pagination count={10} color="primary" />
-        </div>
-      </div>
+
+
+  return (
+
+
+    <div >
+
+      {Infocards(true, infoInmueble, isLoad)}
+
+
     </div>
   )
 }
 
 //Función para mostrar los inmuebles en forma de cuadricula
-function showMoreElements() {
+function showMoreElements(infoInmueble, isLoad) {
   return (
 
     <div >
-      {Infocards(false)}
-      
-      <div className="Home-Footer" >
-        <div className="row justify-content-center">
-          <Pagination count={10} color="primary" />
-        </div>
-      </div>
+      {Infocards(false, infoInmueble, isLoad)}
+
+
     </div>
 
   );
