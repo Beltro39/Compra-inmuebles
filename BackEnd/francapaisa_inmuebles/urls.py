@@ -14,33 +14,49 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-
 from django.conf.urls.i18n import i18n_patterns
 from django.urls import include, path, re_path
 
 from francapaisa_inmuebles.views.TipoInmuebleListServiceDataView import TipoInmuebleListServiceDataView
 from francapaisa_inmuebles.views.TipoInmuebleListByIdServiceDataView import TipoInmuebleListByIdServiceDataView
-from francapaisa_inmuebles.views.ScrappingListServiceDataView import ScrappingListServiceDataView
+# from francapaisa_inmuebles.views.ScrappingListServiceDataView import ScrappingListServiceDataView
+from francapaisa_inmuebles.views.ScrappingListServicePaginatedDataView import ScrappingListServicePaginatedDataView
 from francapaisa_inmuebles.views.ScrappingListByIdServiceDataView import ScrappingListByIdServiceDataView
+# from francapaisa_inmuebles.views.ScrappingListByFilterServiceDataView import ScrappingListByFilterServiceDataView
+from francapaisa_inmuebles.views.ScrappingListByFilterServicePaginatedDataView import \
+    ScrappingListByFilterServicePaginatedDataView
 
 urlpatterns = []
 
 francapaisa_inmuebles_endpoint_views = [
-                                       path    ('tipo-inmueble/<int:idTipoInmueble>/',
-                                                TipoInmuebleListByIdServiceDataView.as_view (),
-                                                name = "tipo-inmueble-list-by-id"),
+    path('tipo-inmueble/<int:idTipoInmueble>/',
+         TipoInmuebleListByIdServiceDataView.as_view(),
+         name="tipo-inmueble-list-by-id"),
 
-                                       path    ('tipo-inmueble/',
-                                                TipoInmuebleListServiceDataView.as_view (),
-                                                name = "tipo-inmueble"),
+    path('tipo-inmueble/',
+         TipoInmuebleListServiceDataView.as_view(),
+         name="tipo-inmueble"),
 
-                                       path    ('scrapping/<int:idScrapping>/',
-                                                ScrappingListByIdServiceDataView.as_view (),
-                                                name = "scrapping-list-by-id"),
+    #                                       path    ('scrapping-filtro/',
+    #                                                ScrappingListByFilterServiceDataView.as_view (),
+    #                                                name = "scrapping-list-by-filter"),
 
-                                       path    ('scrapping/',
-                                                ScrappingListServiceDataView.as_view (),
-                                                name = "scrapping"),
-                                   ]
+    path('scrapping-filtro/',
+         ScrappingListByFilterServicePaginatedDataView.as_view(),
+         name="scrapping-list-by-filter"),
+
+    path('scrapping/<int:idScrapping>/',
+         ScrappingListByIdServiceDataView.as_view(),
+         name="scrapping-list-by-id"),
+
+    #                                       path    ('scrapping/',
+    #                                                ScrappingListServiceDataView.as_view (),
+    #                                                name = "scrapping"),
+
+    path('scrapping/',
+         ScrappingListServicePaginatedDataView.as_view(),
+         name="scrapping"),
+
+]
 
 urlpatterns += francapaisa_inmuebles_endpoint_views
