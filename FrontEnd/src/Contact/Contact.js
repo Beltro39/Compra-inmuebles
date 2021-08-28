@@ -45,27 +45,27 @@ function Contact() {
                         <form className="g-3 needs-validation" id="myform">
                             <div className="container" style={styles.styleForm}>
                                 <div className="row justify-content-center" style={styles.styleFormHeader}>
-                                    Dejanos un mensaje, nuestro equipo se pondra en contacto contigo
+                                    Déjanos un mensaje, nuestro equipo se pondra en contacto contigo.
                                 </div>
                                 <br></br>
                                 <div>
                                     <div className="form-group">
-                                        <label>Nombre</label>
+                                        <label>Nombre:</label>
                                         <input type="text" pattern="[a-zA-Z]*" title="Este campo solo permite letras" className="form-control" required />
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Correo electrónico</label>
+                                        <label>Correo electrónico:</label>
                                         <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Por favor introduza un correo válido" className="form-control" required />
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Telefono</label>
+                                        <label>Teléfono:</label>
                                         <input type="text" pattern="[0-9]*" title="Este campo solo permite numeros" className="form-control" required />
                                     </div>
 
                                     <div className="form-group">
-                                        <label>Descripción</label>
+                                        <label>Descripción:</label>
                                         <textarea type="text" className="form-control" required />
                                     </div>
 
