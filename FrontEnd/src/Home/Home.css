@@ -54,7 +54,15 @@
 
 }
 
+img.card-img-top.img-list-card{
+    width: 236px;
+    height: 184px;
+}
 
+img.card-img-top.card-img-top-grid{
+    width: 215px;
+    height: 161px;
+}
 
 .card-text{
     font-size: medium;

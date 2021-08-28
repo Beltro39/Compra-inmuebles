@@ -18,10 +18,10 @@ function Home() {
   const [buttonName, setButtonName] = useState(<span><GiChainsaw /> Cambiar a cuadricula</span>);
   const [showListView, setShowListView] = useState(true);
   const [tipo_inmueble, setType] = useState(1);
-  const [valor_inmueble_min, setMinValue] = useState(0);
-  const [valor_inmueble_max, setMaxValue] = useState(0);
-  const [area_total_min, setMinSize] = useState(0);
-  const [area_total_max, setMaxSize] = useState(0);
+  const [valor_inmueble_min, setMinValue] = useState(undefined);
+  const [valor_inmueble_max, setMaxValue] = useState(undefined);
+  const [area_total_min, setMinSize] = useState(undefined);
+  const [area_total_max, setMaxSize] = useState(undefined);
   const [cantidad_banos, setBanos] = useState(1);
   const [cantidad_habitaciones, setRooms] = useState(1);
   function handleType(event) {
@@ -60,24 +60,22 @@ function Home() {
       })
   }
   async function apiRestList() {
-    const requestOptions = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        tipo_inmueble: null,
-        valor_inmueble_min: null,
-        valor_inmueble_max: null,
-        area_total_min: null,
-        area_total_max: null,
-        cantidad_banos: null,
-        cantidad_habitaciones: null
-      })
-    };
-
-    return fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/', requestOptions)
+    return fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/')
       .then(response => response.json())
       .then(data => {
-        setInfoInmueble(data)
+        console.log(data);
+        let dataMaped = data.map((element) => {
+          if (element.nombre_fuente === "Properati") {
+            element.url_fuente = "https://www.properati.com.co" + element.url_fuente;
+          } else if (element.nombre_fuente === "https://habitamos.com.co/"){
+            element.nombre_fuente = "habitamos";
+          } else if (element.nombre_fuente === "espaciourbano.com"){
+            element.nombre_fuente = "espaciourbano";
+          }
+          element.nombre_fuente = element.nombre_fuente.charAt(0).toUpperCase() + element.nombre_fuente.slice(1);
+          return element;
+        });
+        setInfoInmueble(dataMaped)
         setIsLoad(true)
       })
   }
@@ -135,7 +133,16 @@ function Home() {
     return fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/', requestOptions)
       .then(response => response.json())
       .then(data => {
-        setInfoInmueble(data)
+        let dataMaped = data.map((element) => {
+          if (element.nombre_fuente === "Properati") {
+            element.url_fuente = "https://www.properati.com.co" + element.url_fuente;
+          } else if (element.nombre_fuente === "https://habitamos.com.co/"){
+            element.nombre_fuente = "habitamos";
+          }
+          element.nombre_fuente = element.nombre_fuente.charAt(0).toUpperCase() + element.nombre_fuente.slice(1);
+          return element;
+        });
+        setInfoInmueble(dataMaped)
         setIsLoad(true)
       })
   }
@@ -289,10 +296,10 @@ function Infocards(parametro, infoInmueble, isLoaded) {
       return (
 
         <div>
-          <Listcards img={infoInmueble[offSet].imagen_inmueble} lugar={infoInmueble[offSet].barrio_data.nombre} tipo={infoInmueble[offSet].tipo_inmueble_data.nombre} precio={infoInmueble[offSet].valor_inmueble} fuente={infoInmueble[offSet].nombre_fuente} />
-          <Listcards img={infoInmueble[1 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 1].barrio_data.nombre} tipo={infoInmueble[offSet + 1].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 1].valor_inmueble} fuente={infoInmueble[offSet + 1].nombre_fuente} />
-          <Listcards img={infoInmueble[2 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 2].barrio_data.nombre} tipo={infoInmueble[offSet + 2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 2].valor_inmueble} fuente={infoInmueble[offSet + 2].nombre_fuente} />
-          <Listcards img={infoInmueble[3 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 3].barrio_data.nombre} tipo={infoInmueble[offSet + 3].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 3].valor_inmueble} fuente={infoInmueble[offSet + 3].nombre_fuente} />
+          <Listcards img={infoInmueble[offSet].imagen_inmueble} lugar={infoInmueble[offSet].barrio_data.nombre} tipo={infoInmueble[offSet].tipo_inmueble_data.nombre} precio={infoInmueble[offSet].valor_inmueble} fuente={infoInmueble[offSet].nombre_fuente} url={infoInmueble[offSet].url_fuente} />
+          <Listcards img={infoInmueble[1 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 1].barrio_data.nombre} tipo={infoInmueble[offSet + 1].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 1].valor_inmueble} fuente={infoInmueble[offSet + 1].nombre_fuente} url={infoInmueble[offSet + 1].url_fuente} />
+          <Listcards img={infoInmueble[2 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 2].barrio_data.nombre} tipo={infoInmueble[offSet + 2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 2].valor_inmueble} fuente={infoInmueble[offSet + 2].nombre_fuente} url={infoInmueble[offSet + 1].url_fuente} />
+          <Listcards img={infoInmueble[3 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 3].barrio_data.nombre} tipo={infoInmueble[offSet + 3].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 3].valor_inmueble} fuente={infoInmueble[offSet + 3].nombre_fuente} url={infoInmueble[offSet + 1].url_fuente} />
 
           <div className="Home-Footer" >
             <div className="row justify-content-center">
@@ -306,12 +313,12 @@ function Infocards(parametro, infoInmueble, isLoaded) {
       return (
         <div>
           <div className="row">
-            <Gridcards img={infoInmueble[offSet2].imagen_inmueble} lugar={infoInmueble[offSet2].barrio_data.nombre} tipo={infoInmueble[offSet2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2].valor_inmueble} fuente={infoInmueble[offSet2].nombre_fuente} />
-            <Gridcards img={infoInmueble[1 + offSet2].imagen_inmueble} lugar={infoInmueble[offSet2 + 1].barrio_data.nombre} tipo={infoInmueble[offSet2 + 1].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 1].valor_inmueble} fuente={infoInmueble[offSet2 + 1].nombre_fuente} />
-            <Gridcards img={infoInmueble[2 + offSet2].imagen_inmueble} lugar={infoInmueble[offSet2 + 2].barrio_data.nombre} tipo={infoInmueble[offSet2 + 2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 2].valor_inmueble} fuente={infoInmueble[offSet2 + 2].nombre_fuente} />
-            <Gridcards img={infoInmueble[3 + offSet2].imagen_inmueble} lugar={infoInmueble[offSet2 + 3].barrio_data.nombre} tipo={infoInmueble[offSet2 + 3].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 3].valor_inmueble} fuente={infoInmueble[offSet2 + 3].nombre_fuente} />
-            <Gridcards img={infoInmueble[4 + offSet2].imagen_inmueble} lugar={infoInmueble[offSet2 + 4].barrio_data.nombre} tipo={infoInmueble[offSet2 + 4].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 4].valor_inmueble} fuente={infoInmueble[offSet2 + 4].nombre_fuente} />
-            <Gridcards img={infoInmueble[5 + offSet2].imagen_inmueble} lugar={infoInmueble[offSet2 + 5].barrio_data.nombre} tipo={infoInmueble[offSet2 + 5].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 5].valor_inmueble} fuente={infoInmueble[offSet2 + 5].nombre_fuente} />
+            <Gridcards img={infoInmueble[offSet2].imagen_inmueble} lugar={infoInmueble[offSet2].barrio_data.nombre} tipo={infoInmueble[offSet2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2].valor_inmueble} fuente={infoInmueble[offSet2].nombre_fuente} url={infoInmueble[offSet2].url_fuente} />
+            <Gridcards img={infoInmueble[offSet2 + 1].imagen_inmueble} lugar={infoInmueble[offSet2 + 1].barrio_data.nombre} tipo={infoInmueble[offSet2 + 1].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 1].valor_inmueble} fuente={infoInmueble[offSet2 + 1].nombre_fuente} url={infoInmueble[offSet2 + 1].url_fuente} />
+            <Gridcards img={infoInmueble[offSet2 + 2].imagen_inmueble} lugar={infoInmueble[offSet2 + 2].barrio_data.nombre} tipo={infoInmueble[offSet2 + 2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 2].valor_inmueble} fuente={infoInmueble[offSet2 + 2].nombre_fuente} url={infoInmueble[offSet2 + 2].url_fuente} />
+            <Gridcards img={infoInmueble[offSet2 + 3].imagen_inmueble} lugar={infoInmueble[offSet2 + 3].barrio_data.nombre} tipo={infoInmueble[offSet2 + 3].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 3].valor_inmueble} fuente={infoInmueble[offSet2 + 3].nombre_fuente} url={infoInmueble[offSet2 + 3].url_fuente} />
+            <Gridcards img={infoInmueble[offSet2 + 4].imagen_inmueble} lugar={infoInmueble[offSet2 + 4].barrio_data.nombre} tipo={infoInmueble[offSet2 + 4].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 4].valor_inmueble} fuente={infoInmueble[offSet2 + 4].nombre_fuente} url={infoInmueble[offSet2 + 4].url_fuente} />
+            <Gridcards img={infoInmueble[offSet2 + 5].imagen_inmueble} lugar={infoInmueble[offSet2 + 5].barrio_data.nombre} tipo={infoInmueble[offSet2 + 5].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 5].valor_inmueble} fuente={infoInmueble[offSet2 + 5].nombre_fuente} url={infoInmueble[offSet2 + 5].url_fuente} />
           </div>
           <div className="Home-Footer" >
             <div className="row justify-content-center">

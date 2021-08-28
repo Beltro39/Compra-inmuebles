@@ -1,13 +1,11 @@
-//function Cards(props){
-//    return 
-//}
+import './Home.css'
 
 const Listcards = props => {
     return (
         <div className="card form-group">
             <div className="row no-gutters">
                 <div className="col-sm">
-                    <img className="card-img-top" src={props.img} alt="Card cap" />
+                    <img className="card-img-top img-list-card" src={props.img} alt="Card cap" />
                 </div>
 
                 <div className="col-sm">
@@ -20,7 +18,7 @@ const Listcards = props => {
                 </div>
 
                 <div className="col-sm center bg-dark">
-                    <a href="/" className="btn btn-primary button">Más información</a>
+                    <a href={props.url} className="btn btn-primary" target="_blank" rel="noreferrer">Más información</a>
                 </div>
             </div>
         </div>
