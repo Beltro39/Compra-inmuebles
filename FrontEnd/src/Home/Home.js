@@ -60,16 +60,15 @@ function Home() {
       })
   }
   async function apiRestList() {
-    return fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/')
+    return fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/?pageSize=300&pageNumber=1')
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         let dataMaped = data.map((element) => {
           if (element.nombre_fuente === "Properati") {
             element.url_fuente = "https://www.properati.com.co" + element.url_fuente;
-          } else if (element.nombre_fuente === "https://habitamos.com.co/"){
+          } else if (element.nombre_fuente === "https://habitamos.com.co/") {
             element.nombre_fuente = "habitamos";
-          } else if (element.nombre_fuente === "espaciourbano.com"){
+          } else if (element.nombre_fuente === "espaciourbano.com") {
             element.nombre_fuente = "espaciourbano";
           }
           element.nombre_fuente = element.nombre_fuente.charAt(0).toUpperCase() + element.nombre_fuente.slice(1);
@@ -115,7 +114,7 @@ function Home() {
   };
 
   function applyFilters() {
-
+    setIsLoad(false)
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -130,13 +129,13 @@ function Home() {
       })
     };
 
-    return fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/', requestOptions)
+    return fetch('https://201.184.129.122/FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping-filtro/?pageSize=300&pageNumber=1', requestOptions)
       .then(response => response.json())
       .then(data => {
         let dataMaped = data.map((element) => {
           if (element.nombre_fuente === "Properati") {
             element.url_fuente = "https://www.properati.com.co" + element.url_fuente;
-          } else if (element.nombre_fuente === "https://habitamos.com.co/"){
+          } else if (element.nombre_fuente === "https://habitamos.com.co/") {
             element.nombre_fuente = "habitamos";
           }
           element.nombre_fuente = element.nombre_fuente.charAt(0).toUpperCase() + element.nombre_fuente.slice(1);
@@ -296,14 +295,15 @@ function Infocards(parametro, infoInmueble, isLoaded) {
       return (
 
         <div>
-          <Listcards img={infoInmueble[offSet].imagen_inmueble} lugar={infoInmueble[offSet].barrio_data.nombre} tipo={infoInmueble[offSet].tipo_inmueble_data.nombre} precio={infoInmueble[offSet].valor_inmueble} fuente={infoInmueble[offSet].nombre_fuente} url={infoInmueble[offSet].url_fuente} />
-          <Listcards img={infoInmueble[1 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 1].barrio_data.nombre} tipo={infoInmueble[offSet + 1].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 1].valor_inmueble} fuente={infoInmueble[offSet + 1].nombre_fuente} url={infoInmueble[offSet + 1].url_fuente} />
-          <Listcards img={infoInmueble[2 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 2].barrio_data.nombre} tipo={infoInmueble[offSet + 2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 2].valor_inmueble} fuente={infoInmueble[offSet + 2].nombre_fuente} url={infoInmueble[offSet + 1].url_fuente} />
-          <Listcards img={infoInmueble[3 + offSet].imagen_inmueble} lugar={infoInmueble[offSet + 3].barrio_data.nombre} tipo={infoInmueble[offSet + 3].tipo_inmueble_data.nombre} precio={infoInmueble[offSet + 3].valor_inmueble} fuente={infoInmueble[offSet + 3].nombre_fuente} url={infoInmueble[offSet + 1].url_fuente} />
-
+          {
+            infoInmueble.slice(offSet, (offSet + 4 < infoInmueble.length ? offSet + 4 : infoInmueble.length)).map(card =>
+              <Listcards key={card.idScrapping} img={card.imagen_inmueble} lugar={card.barrio_data.nombre}
+                tipo={card.tipo_inmueble_data.nombre} precio={card.valor_inmueble} fuente={card.nombre_fuente}
+                url={card.url_fuente} />)
+          }
           <div className="Home-Footer" >
             <div className="row justify-content-center">
-              <Pagination count={10} color="primary" page={currentPage} onChange={handlePagination} />
+              <Pagination count={Math.round(infoInmueble.length / 4)} color="primary" page={currentPage} onChange={handlePagination} />
             </div>
           </div>
         </div>
@@ -313,16 +313,16 @@ function Infocards(parametro, infoInmueble, isLoaded) {
       return (
         <div>
           <div className="row">
-            <Gridcards img={infoInmueble[offSet2].imagen_inmueble} lugar={infoInmueble[offSet2].barrio_data.nombre} tipo={infoInmueble[offSet2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2].valor_inmueble} fuente={infoInmueble[offSet2].nombre_fuente} url={infoInmueble[offSet2].url_fuente} />
-            <Gridcards img={infoInmueble[offSet2 + 1].imagen_inmueble} lugar={infoInmueble[offSet2 + 1].barrio_data.nombre} tipo={infoInmueble[offSet2 + 1].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 1].valor_inmueble} fuente={infoInmueble[offSet2 + 1].nombre_fuente} url={infoInmueble[offSet2 + 1].url_fuente} />
-            <Gridcards img={infoInmueble[offSet2 + 2].imagen_inmueble} lugar={infoInmueble[offSet2 + 2].barrio_data.nombre} tipo={infoInmueble[offSet2 + 2].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 2].valor_inmueble} fuente={infoInmueble[offSet2 + 2].nombre_fuente} url={infoInmueble[offSet2 + 2].url_fuente} />
-            <Gridcards img={infoInmueble[offSet2 + 3].imagen_inmueble} lugar={infoInmueble[offSet2 + 3].barrio_data.nombre} tipo={infoInmueble[offSet2 + 3].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 3].valor_inmueble} fuente={infoInmueble[offSet2 + 3].nombre_fuente} url={infoInmueble[offSet2 + 3].url_fuente} />
-            <Gridcards img={infoInmueble[offSet2 + 4].imagen_inmueble} lugar={infoInmueble[offSet2 + 4].barrio_data.nombre} tipo={infoInmueble[offSet2 + 4].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 4].valor_inmueble} fuente={infoInmueble[offSet2 + 4].nombre_fuente} url={infoInmueble[offSet2 + 4].url_fuente} />
-            <Gridcards img={infoInmueble[offSet2 + 5].imagen_inmueble} lugar={infoInmueble[offSet2 + 5].barrio_data.nombre} tipo={infoInmueble[offSet2 + 5].tipo_inmueble_data.nombre} precio={infoInmueble[offSet2 + 5].valor_inmueble} fuente={infoInmueble[offSet2 + 5].nombre_fuente} url={infoInmueble[offSet2 + 5].url_fuente} />
+            {
+              infoInmueble.slice(offSet2, (offSet2 + 6 < infoInmueble.length ? offSet2 + 6 : infoInmueble.length)).map(card =>
+                <Gridcards key={card.idScrapping} img={card.imagen_inmueble} lugar={card.barrio_data.nombre}
+                  tipo={card.tipo_inmueble_data.nombre} precio={card.valor_inmueble} fuente={card.nombre_fuente}
+                  url={card.url_fuente} />)
+            }
           </div>
           <div className="Home-Footer" >
             <div className="row justify-content-center">
-              <Pagination count={10} color="primary" page={currentPage2} onChange={handlePagination2} />
+              <Pagination count={Math.round(infoInmueble.length / 6)} color="primary" page={currentPage2} onChange={handlePagination2} />
             </div>
           </div>
         </div>
