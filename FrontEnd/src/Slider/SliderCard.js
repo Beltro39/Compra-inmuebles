@@ -17,10 +17,10 @@ const SliderCard = props => {
                         <p className="text-align-left"><strong>Tipo:</strong> {props.tipo}</p>
                         <p className="text-align-left"><strong>Precio:</strong> {props.precio}</p>
                         <p className="text-align-left"><strong>Fuente:</strong> {props.fuente}</p>
-                        <a href="/" className="btn btn-primary button">Más información</a>
+                        <a href={props.url} target="_blank" rel="noreferrer" className="btn btn-primary button">Más información</a>
 
                     </div>
-                </div>
+                </div> 
 
                 
             </div>
