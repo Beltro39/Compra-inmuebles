@@ -22,7 +22,7 @@ class ScrappingListServiceDataView (APIView):
     @method_decorator(csrf_exempt)
     def get (self, request, format = None, *args, **kwargs):
 
-        scrappingData = ScrappingModel.objects.get_all ()
+        scrappingData = ScrappingModel.objects.get_all ()[:60]
 
         scrappingSerializer = ScrappingSerializer (scrappingData,
                                                    many = True)
