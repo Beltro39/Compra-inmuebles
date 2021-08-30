@@ -3,9 +3,9 @@
 
 ## Lista de paquetes necesarios con su respectiva versión
 
-- Pyhon 3.9  Documentation: https://docs.python.org/3/
-- Django 3.2  Documentation: https://docs.djangoproject.com/en/3.2/
-- PostgreSQL 13.2  Documentation: https://www.postgresql.org/docs/13/index.html
+- Pyhon 3.9  *Documentation: https://docs.python.org/3/*
+- Django 3.2  *Documentation: https://docs.djangoproject.com/en/3.2/*
+- PostgreSQL 13.2  *Documentation: https://www.postgresql.org/docs/13/index.html*
 
 ### Instalación base de datos.
 
