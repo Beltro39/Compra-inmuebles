@@ -21,6 +21,8 @@ Base de datos de almacenamiento de resultados del web scrapping.
     USER "FrancaPaisa"
     PASSWORD 'FP#$tS'
     
+## Consumo de servicios 
+
 ### Scrapping List Service Paginated Data
 
 GET /FrancaPaisa-Servicios/v0/francapaisa-inmuebles/scrapping/?pageSize=300&pageNumber=1
